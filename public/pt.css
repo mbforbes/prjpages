@@ -1,33 +1,18 @@
-
-/* Customize container */
-/*@media (max-width: 750px) {
-  body > .container {
-    max-width: 750px;
-  }
-}*/
-
-@media (min-width: 380px) {
-  header > .container.top {
-  	max-width: 380px;
-  }
+/*I think 380 is the smallest setting, but my phone is 360, so basing off of that*/
+header > .container.top {
+	max-width: 360px;
 }
 
-/*@media (max-width: 768px) {
-  .prjitemVert {
-  	margin-left: 20px;
-  	margin-right: 20px;  	
-  }
-}*/
-
 header > .container.separator {
-  	/*max-width: 100%;*/
   	width: 95%;
 	padding-top: 10px;
 }
 
 .spacebar {
-	/* Default*/
+	/* Default */
 	/*border-bottom: 1px solid #dddddd;*/
+
+	/* Active for the programming thing (just proof of concept; should be dynamic... */
 	border-bottom: 1px solid orange;	
 }
 .location {
@@ -56,7 +41,6 @@ header, footer {
 
 .linkbar > div {
 	padding-bottom: 5px;
-	/*display: inline-block;*/
 	letter-spacing: 2px;
 }
 
@@ -73,30 +57,25 @@ header, footer {
 }
 
 .areas > div {
-	/*display: inline-block;*/
 	letter-spacing: 1px;
 	text-align: left;
 }
-
-/*.spacebar {
-	height: 5px;
-	border-bottom: 1px solid #dddddd;
-}*/
 
 header {
 	margin-top: 0px;
 	margin-bottom: 10px;
 }
 
-/* My "Maxwell Forbes" font */
+/* My "Max Forbes" font */
 header h1 {
 	text-align: center;	
 	font-family: monospace;	
 	margin-bottom: 10px;
 	letter-spacing: 7px;
-	font-size: 34pt;
+	font-size: 32pt;
 	/*text-shadow: #111 0px 0px 10px;*/
 }
+
 
 header h2 {
 	font-size: 18pt;
@@ -104,15 +83,6 @@ header h2 {
 	margin-bottom: 0px;
 }
 
-.navitem {
-	margin-right: 10px;
-	display: inline-block;
-}
-
-.detailbar {
-	background-color: orange;
-	font-size: 15pt;
-}
 
 footer {
 	text-align: center;
@@ -121,28 +91,9 @@ footer {
 	letter-spacing: 1px;
 }
 
-body {
-	/*background: #f2f2f2;*/
-}
-
-.prjitemCol {
+.content {
+	/* Centers all of the cards. */
 	text-align: center;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	color: white;
-}
-
-.prjitemWrapper {
-	width: 250px;
-	margin: 0 auto;
-}
-
-.prjitemRow {
-	/*display: inline-block;		*/
-	background-color: #242625;	
-	/* Why on earth does bootstrap think these should be -15 ??? */
-	margin-left: 0px;
-	margin-right: 0px;
 }
 
 .content h1 {
@@ -162,30 +113,36 @@ body {
 .vertImage {
 	width: 250px;
 	height: auto;
+	padding-bottom: 5px;
 }
 
-.date {
+.simpledate {
 	font-size: 8pt;
 	text-align: left;
+	float: left;
 }
 
-.icon {
-	text-align: right;
+
+.simpleicon {
+	float: right;
+	text-align: right;	
 }
 
-.content .row.pagetitle {
-	margin-bottom: 20px;
-}
 
 .content p {
 	/*font-family: "Helvetica Neue";*/
-	font-size: 10pt;
-	text-align: left;
+	font-size: 9pt;
+	text-align: justify;
+
+	/* Better justify. Not in Chrome (!). */
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
 }
 
-.imgCell {
-	padding-left: 0px;
-	padding-right: 0px;
-	padding-bottom: 5px;
-	/* anything needed for the image's column?*/
+
+.simpleitem {
+	width: 250px;
+	margin: 50px;	
+	display: inline-block;
 }
