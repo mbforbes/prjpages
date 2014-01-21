@@ -1,0 +1,191 @@
+
+/* Customize container */
+/*@media (max-width: 750px) {
+  body > .container {
+    max-width: 750px;
+  }
+}*/
+
+@media (min-width: 380px) {
+  header > .container.top {
+  	max-width: 380px;
+  }
+}
+
+/*@media (max-width: 768px) {
+  .prjitemVert {
+  	margin-left: 20px;
+  	margin-right: 20px;  	
+  }
+}*/
+
+header > .container.separator {
+  	/*max-width: 100%;*/
+  	width: 95%;
+	padding-top: 10px;
+}
+
+.spacebar {
+	/* Default*/
+	/*border-bottom: 1px solid #dddddd;*/
+	border-bottom: 1px solid orange;	
+}
+.location {
+	font-size: 9pt;
+	padding-left: 0px;
+}
+
+.project.active {
+	color: orange;
+}
+
+body {
+	border: 10px solid #242625;
+	color: #242625;
+}
+
+/* Universal styles */
+header, footer, body, h1, h2, h3, h4, h5, h6 {
+	font-family: monospace;	
+}
+
+/* Spacing and nav links font */
+header, footer {
+	color: black;
+}
+
+.linkbar > div {
+	padding-bottom: 5px;
+	/*display: inline-block;*/
+	letter-spacing: 2px;
+}
+
+.prjLink {
+	text-align: left;
+}
+
+.researchLink {
+	text-align: right;
+}
+
+.row .research {
+	text-align: right;	
+}
+
+.areas > div {
+	/*display: inline-block;*/
+	letter-spacing: 1px;
+	text-align: left;
+}
+
+/*.spacebar {
+	height: 5px;
+	border-bottom: 1px solid #dddddd;
+}*/
+
+header {
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+/* My "Maxwell Forbes" font */
+header h1 {
+	text-align: center;	
+	font-family: monospace;	
+	margin-bottom: 10px;
+	letter-spacing: 7px;
+	font-size: 34pt;
+	/*text-shadow: #111 0px 0px 10px;*/
+}
+
+header h2 {
+	font-size: 18pt;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.navitem {
+	margin-right: 10px;
+	display: inline-block;
+}
+
+.detailbar {
+	background-color: orange;
+	font-size: 15pt;
+}
+
+footer {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 10pt;
+	letter-spacing: 1px;
+}
+
+body {
+	/*background: #f2f2f2;*/
+}
+
+.prjitemCol {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.prjitemWrapper {
+	width: 250px;
+	margin: 0 auto;
+}
+
+.prjitemRow {
+	/*display: inline-block;		*/
+	background-color: #242625;	
+	/* Why on earth does bootstrap think these should be -15 ??? */
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.content h1 {
+	margin-top: 0px;
+	font-size: 10pt;
+	font-weight: 100;	
+	letter-spacing: 2px;
+}
+
+.content h2 {
+	font-size: 14pt;
+	margin-top: 0px;
+	font-weight: 100;
+	clear: both;
+}
+
+.vertImage {
+	width: 250px;
+	height: auto;
+}
+
+.date {
+	font-size: 8pt;
+	text-align: left;
+}
+
+.icon {
+	text-align: right;
+}
+
+.content .row.pagetitle {
+	margin-bottom: 20px;
+}
+
+.content p {
+	/*font-family: "Helvetica Neue";*/
+	font-size: 10pt;
+	text-align: left;
+}
+
+.imgCell {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 5px;
+	/* anything needed for the image's column?*/
+}
