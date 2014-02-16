@@ -122,6 +122,14 @@ footer {
 	float: left;
 }
 
+.licon {
+	margin-right: 8px;
+}
+
+.ricon {
+	margin-left: 8px;
+}
+
 
 .simpleicon {
 	float: right;
