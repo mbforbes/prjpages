@@ -1,7 +1,7 @@
 {
 	"img_src": "http://pocketscientists.com/wp-content/uploads/2012/10/robot1.png",
-	"img_alt": "testing image alt",
+	"img_alt": "The NAO",
 	"date": "February 15, 2014",
-	"title": "Grounding Antonym Adjective Pairs through Interaction",
-	"desc": "Workshop paper for HRI 2014 workshop on Asymmetric Interactions, Bielefeld Germany."
+	"title": "Accelerating Imitation Learning through Crowdsourcing",
+	"desc": "Mike Chung and I worked with profs. Raj Rao and Maya Cakamk to explore how crowdsourcing can improve goal-based imitation learning in robotics."
 }

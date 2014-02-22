@@ -20,66 +20,20 @@ head
 		mixin item(c)
 			include views/itembox
 
-
 		.container.content
+			// Todo: sort
+			each c in data.prj_jsons
+				include views/itembox
+			each c in data.research_jsons
+				include views/itembox
+				//- +item(piece)
 
-			+item(content)
 
-			.simpleitem
-				img.vertImage(src='http://pocketscientists.com/wp-content/uploads/2012/10/robot1.png', alt='testimg text')
-				.simpledate
-					| 09 August 2013
-				.simpleicon
-					span.glyphicon.glyphicon-sound-stereo
-				div
-					h2 Accelerating Imitation Learning through Crowdsourcing
-					p.desc
-						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis rutrum convallis. Phasellus vitae justo porta, vehicula metus a, laoreet velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis rutrum convallis. Phasellus vitae justo porta, vehicula metus a, laoreet velit.
-			.simpleitem
-				img.vertImage(src='robot.jpg', alt='testimg text')
-				.simpledate
-					| 09 August 2013
-				.simpleicon
-					span.glyphicon.glyphicon-sound-stereo
-				div
-					h2 Robot interaction
-					p.desc
-						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis rutrum convallis. Phasellus vitae justo porta, vehicula metus a, laoreet velit.
-			.simpleitem
-				img.vertImage(src='http://pocketscientists.com/wp-content/uploads/2012/10/robot1.png', alt='testimg text')
-				.simpledate
-					| 09 August 2013
-				.simpleicon
-					span.glyphicon.glyphicon-sound-stereo
-				div
-					h2 Robot interaction
-					p.desc
-						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis rutrum convallis. Phasellus vitae justo porta, vehicula metus a, laoreet velit.
-			.simpleitem
-				img.vertImage(src='http://pocketscientists.com/wp-content/uploads/2012/10/robot1.png', alt='testimg text')
-				.simpledate
-					| 09 August 2013
-				.simpleicon
-					span.glyphicon.glyphicon-sound-stereo
-				div
-					h2 Robot interaction
-					p.desc
-						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis rutrum convallis. Phasellus vitae justo porta, vehicula metus a, laoreet velit.
-			.simpleitem
-				img.vertImage(src='http://pocketscientists.com/wp-content/uploads/2012/10/robot1.png', alt='testimg text')
-				.simpledate
-					| 09 August 2013
-				.simpleicon
-					span.glyphicon.glyphicon-sound-stereo
-				div
-					h2 Robot interaction
-					p.desc
-						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lobortis rutrum convallis. Phasellus vitae justo porta, vehicula metus a, laoreet velit.
 		footer
 			.container
 				.row
 					.col-xs-12
-						| All content is © Maxwell Forbes 2013 unless otherwise noted.
+						| All content is &copy; Maxwell Forbes 2013 unless otherwise noted.
 		// JS assets placed at end for faster page loading 
 		// jQuery (necessary for Bootstrap's JavaScript plugins) 
 		script(src='http://code.jquery.com/jquery.js')

@@ -5,7 +5,8 @@
     "colors": "*",
     "express": "*",
     "jade": "*",
-    "merge": "*"
+    "merge": "*",
+    "underscore": "*"
   },
   "engines": {
     "node": "*",
