@@ -10,23 +10,11 @@ header
 				h2 research
 		.row.areas
 			.col-xs-6.projects
-				// TODO curspot (not working)
-				//- each prj_cat in data.prj_cats
+				each pc in data.prj_cats
 					include project_cat
-
-				.project.active
-					span.glyphicon.glyphicon-sound-stereo.licon
-					| programming
-					br
-				span.glyphicon.glyphicon-music.licon
-				| music
-				br
-				-var gbc = "glyphicon-barcode";
-				span.glyphicon.=gbc.licon
-				| clothes
 			.col-xs-6.research
-				| ai
-				span.glyphicon.glyphicon-eye-close.ricon
+				each rc in data.research_cats
+					include research_cat
 	.container.separator
 		.row
 			.col-xs-12.spacebar

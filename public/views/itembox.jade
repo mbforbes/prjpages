@@ -2,7 +2,12 @@
 .simpleitem
 	img.vertImage(src=c.img_src, alt=c.img_alt)
 	.simpledate=c.date
-	.simpleicon: span.glyphicon.glyphicon-sound-stereo
+	if c.section == 'project'
+		- var icon = _.findWhere(data.prj_cats, {name: c.cat}).icon
+	else
+		// c.section == 'research'
+		- var icon = _.findWhere(data.research_cats, {name: c.cat}).icon
+	.simpleicon: span(class="glyphicon", class=icon)
 	div
 		h2=c.title
 		p.desc=c.desc

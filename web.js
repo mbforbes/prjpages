@@ -45,10 +45,14 @@ var research_cats = JSON.parse(fs.readFileSync(research_cat_file));
 
 // Grab all projects and research(es...)
 for (var i = 0; i < prj_files.length; i++) {
-	prj_jsons.push(JSON.parse(fs.readFileSync(prj_dir + prj_files[i])));
+	var raw_json = JSON.parse(fs.readFileSync(prj_dir + prj_files[i]));
+	raw_json.section = 'project';
+	prj_jsons.push(raw_json);
 }
 for (var i = 0; i < research_files.length; i++) {
-	research_jsons.push(JSON.parse(fs.readFileSync(research_dir + "/" + research_files[i])));
+	var raw_json = JSON.parse(fs.readFileSync(research_dir + "/" + research_files[i]));
+	raw_json.section = 'research';
+	research_jsons.push(raw_json);
 }
 var data = {
 	"prj_cats": prj_cats,
@@ -63,7 +67,7 @@ console.log("num research: " + research_jsons.length);
 // serve us up
 app.use(express.logger());
 app.use(express.static(pub_dir));
-
+app.locals._ = require("underscore");
 
 // routing
 app.get('/', function(request, response) {

@@ -1,7 +1,8 @@
 {
-	"img_src": "http://pocketscientists.com/wp-content/uploads/2012/10/robot1.png",
+	"img_src": "images/robot.jpg",
 	"img_alt": "The NAO",
 	"date": "February 15, 2014",
 	"title": "Accelerating Imitation Learning through Crowdsourcing",
-	"desc": "Mike Chung and I worked with profs. Raj Rao and Maya Cakamk to explore how crowdsourcing can improve goal-based imitation learning in robotics."
+	"desc": "Mike Chung and I worked with profs. Raj Rao and Maya Cakamk to explore how crowdsourcing can improve goal-based imitation learning in robotics.",
+	"cat": "ai"
 }

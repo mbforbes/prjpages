@@ -1,0 +1,10 @@
+// Active object is rc. Object format is:
+// {
+//   name : "ai",
+//   icon : "glyphicon-eye-close",
+// } 
+if rc.active
+	.research.active
+		include _research_cat_inner
+else
+	include _research_cat_inner
