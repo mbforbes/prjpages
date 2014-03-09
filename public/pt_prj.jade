@@ -1,6 +1,6 @@
 doctype html
 html(lang='en')
-head
+	head
 		title Maxwell Forbes: robots
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		// Bootstrap: CSS 
@@ -16,18 +16,12 @@ head
 	body
 		include views/header
 		
-		// c is for content
-		mixin item(c)
-			include views/itembox
-
 		.container.content
 			// Todo: sort
 			each c in data.prj_jsons
 				include views/itembox
 			each c in data.research_jsons
 				include views/itembox
-				//- +item(piece)
-
 
 		footer
 			.container
