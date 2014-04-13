@@ -1,6 +1,14 @@
-# See https://github.com/github/gitignore/blob/master/Node.gitignore
+# NOTE(auto): See https://github.com/github/gitignore/blob/master/Node.gitignore
 
+# NOTE(max): Probably general things that shouldn't be here (auto-gen).
 logs
 build
 
+# Note(max): Don't want to track node modules (auto-gen).
 node_modules/
+
+# Note(max): We've got bootstrap as a sub-repo to stay up-to-date. Ignore that.
+bootstrap
+
+# Note(max): We're using sass so don't want to track that stuff.
+.sass-cache

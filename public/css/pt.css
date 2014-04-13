@@ -1,0 +1,124 @@
+/* Colors */
+/*I think 380 is the smallest setting, but my phone is 360, so basing off of that*/
+header > .container.top {
+  max-width: 360px; }
+
+header > .container.separator {
+  width: 95%;
+  padding-top: 10px; }
+
+.spacebar {
+  /* Default */
+  /*border-bottom: 1px solid #dddddd;*/
+  /* Active for the programming thing (just proof of concept; should be dynamic... */
+  border-bottom: 1px solid #ff7f00; }
+
+.location {
+  font-size: 9pt;
+  padding-left: 0px; }
+
+.project.active {
+  color: #ff7f00; }
+
+body {
+  border: 10px solid #242625;
+  color: "red"; }
+
+/* Universal styles */
+header, footer, body, h1, h2, h3, h4, h5, h6 {
+  font-family: monospace; }
+
+/* Spacing and nav links font */
+header, footer {
+  color: "red"; }
+
+.linkbar > div {
+  padding-bottom: 5px;
+  letter-spacing: 2px; }
+
+.prjLink {
+  text-align: left; }
+
+.researchLink {
+  text-align: right; }
+
+.row .research {
+  text-align: right; }
+
+.areas > div {
+  letter-spacing: 1px;
+  text-align: left; }
+
+header {
+  margin-top: 0px;
+  margin-bottom: 10px; }
+
+/* My "Max Forbes" font */
+header h1 {
+  text-align: center;
+  font-family: monospace;
+  margin-bottom: 10px;
+  letter-spacing: 7px;
+  font-size: 32pt;
+  /*text-shadow: #111 0px 0px 10px;*/ }
+
+header h2 {
+  font-size: 18pt;
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+footer {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 10pt;
+  letter-spacing: 1px; }
+
+.content {
+  /* Centers all of the cards. */
+  text-align: center; }
+
+.content h1 {
+  margin-top: 0px;
+  font-size: 10pt;
+  font-weight: 100;
+  letter-spacing: 2px; }
+
+.content h2 {
+  font-size: 14pt;
+  margin-top: 0px;
+  font-weight: 100;
+  clear: both; }
+
+.vertImage {
+  width: 250px;
+  height: auto;
+  padding-bottom: 5px; }
+
+.simpledate {
+  font-size: 8pt;
+  text-align: left;
+  float: left; }
+
+.licon {
+  margin-right: 8px; }
+
+.ricon {
+  margin-left: 8px; }
+
+.simpleicon {
+  float: right;
+  text-align: right; }
+
+.content p {
+  /*font-family: "Helvetica Neue";*/
+  font-size: 9pt;
+  text-align: justify;
+  /* Better justify. Not in Chrome (!). */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto; }
+
+.simpleitem {
+  width: 250px;
+  margin: 50px;
+  display: inline-block; }

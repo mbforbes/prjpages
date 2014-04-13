@@ -1,3 +1,15 @@
+/* Colors */
+
+// project / resarch categories
+$color_prog: #ff7f00; // orange
+$color_music:  #377eb8; // blue
+$color_clothes: #984ea3; // purple
+$color_ai: #e41a1c; // red
+
+// main
+$color_border: #242625;
+$color_text: "red";
+
 /*I think 380 is the smallest setting, but my phone is 360, so basing off of that*/
 header > .container.top {
 	max-width: 360px;
@@ -13,7 +25,7 @@ header > .container.separator {
 	/*border-bottom: 1px solid #dddddd;*/
 
 	/* Active for the programming thing (just proof of concept; should be dynamic... */
-	border-bottom: 1px solid orange;	
+	border-bottom: 1px solid $color_prog;
 }
 .location {
 	font-size: 9pt;
@@ -21,12 +33,12 @@ header > .container.separator {
 }
 
 .project.active {
-	color: orange;
+	color: $color_prog;
 }
 
 body {
-	border: 10px solid #242625;
-	color: #242625;
+	border: 10px solid $color_border;
+	color: $color_text;
 }
 
 /* Universal styles */
@@ -36,7 +48,7 @@ header, footer, body, h1, h2, h3, h4, h5, h6 {
 
 /* Spacing and nav links font */
 header, footer {
-	color: black;
+	color: $color_text;
 }
 
 .linkbar > div {
