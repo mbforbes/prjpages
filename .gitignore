@@ -10,5 +10,5 @@ node_modules/
 # Note(max): We've got bootstrap as a sub-repo to stay up-to-date. Ignore that.
 bootstrap
 
-# Note(max): We're using sass so don't want to track that stuff.
+# Note(max): We're using sass so don't want to track cache.
 .sass-cache
