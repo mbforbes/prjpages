@@ -1,5 +1,6 @@
 // Module dependencies
 var express = require("express");
+var logger = require("morgan");
 var fs = require("fs");
 var merge = require('merge');
 var _ = require('underscore');
@@ -65,7 +66,7 @@ console.log("num projects: " + prj_jsons.length);
 console.log("num research: " + research_jsons.length);
 
 // serve us up
-app.use(express.logger());
+app.use(logger());
 app.use(express.static(pub_dir));
 app.locals._ = require("underscore");
 

@@ -6,7 +6,8 @@
     "express": "*",
     "jade": "*",
     "merge": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "morgan": "*"
   },
   "engines": {
     "node": "*",
