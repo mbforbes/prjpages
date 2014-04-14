@@ -1,15 +1,17 @@
 /* Import bootstrap */
+@import "bootstrap.min.css";
 
 /* Colors */
 // project / resarch categories
-$color_prog: #ff7f00; // orange
-$color_music:  #377eb8; // blue
-$color_clothes: #984ea3; // purple
-$color_ai: #e41a1c; // red
+$c_prog: #ff7f00; // orange
+$c_music:  #377eb8; // blue
+$c_clothes: #984ea3; // purple
+$c_ai: #e41a1c; // red
 
 // main
-$color_border: #242625;
-$color_text: "red";
+$craw_dark_grey: #242625;
+$c_border: $craw_dark_grey;
+$c_text: $craw_dark_grey;
 
 /*I think 380 is the smallest setting, but my phone is 360, so basing off of that*/
 header > .container.top {
@@ -26,7 +28,7 @@ header > .container.separator {
 	/*border-bottom: 1px solid #dddddd;*/
 
 	/* Active for the programming thing (just proof of concept; should be dynamic... */
-	border-bottom: 1px solid $color_prog;
+	border-bottom: 1px solid $c_prog;
 }
 .location {
 	font-size: 9pt;
@@ -34,12 +36,12 @@ header > .container.separator {
 }
 
 .project.active {
-	color: $color_prog;
+	color: $c_prog;
 }
 
 body {
-	border: 10px solid $color_border;
-	color: $color_text;
+	border: 10px solid $c_border;
+	color: $c_text;
 }
 
 /* Universal styles */
@@ -49,7 +51,7 @@ header, footer, body, h1, h2, h3, h4, h5, h6 {
 
 /* Spacing and nav links font */
 header, footer {
-	color: $color_text;
+	color: $c_text;
 }
 
 .linkbar > div {

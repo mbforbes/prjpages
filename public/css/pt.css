@@ -1,3 +1,5 @@
+/* Import bootstrap */
+@import url(bootstrap.min.css);
 /* Colors */
 /*I think 380 is the smallest setting, but my phone is 360, so basing off of that*/
 header > .container.top {
@@ -22,7 +24,7 @@ header > .container.separator {
 
 body {
   border: 10px solid #242625;
-  color: "red"; }
+  color: #242625; }
 
 /* Universal styles */
 header, footer, body, h1, h2, h3, h4, h5, h6 {
@@ -30,7 +32,7 @@ header, footer, body, h1, h2, h3, h4, h5, h6 {
 
 /* Spacing and nav links font */
 header, footer {
-  color: "red"; }
+  color: #242625; }
 
 .linkbar > div {
   padding-bottom: 5px;
