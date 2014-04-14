@@ -6,6 +6,7 @@
   * public/js/bootstrap.min.js
   * public/fonts/*
   * public/css/pt_prj.css
+However, this could be a little complicated because heroku would have to actually pull the bootstrap source because I don't want to track that either. Just compiling the scss would be a good start.
 
 ## Notes:
 * My phone's screen width is 360px, so that should be the minimum resolution width supported (if not smaller...)
