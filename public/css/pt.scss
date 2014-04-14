@@ -1,17 +1,61 @@
+/* Imports
+*******************************************************************************/
+
 /* Import bootstrap */
 @import "bootstrap.min.css";
 
-/* Colors */
+/* Size constants
+*******************************************************************************/
+$px_itemContentWidth: 250px;
+$px_itemPadding: 10px;
+$px_itemWidth: $px_itemContentWidth + (2 * $px_itemPadding);
+$px_itemMargin: 50px;
+
+/* Colors
+*******************************************************************************/
+
+// RAW (options)
+// -------------
+// These are from Color Brewer
+$craw_orange: #ff7f00;
+$craw_blue: #377eb8;
+$craw_purple: #984ea3;
+$craw_red: #e41a1c;
+
+// These greys were picked semi-arbitrarily
+$craw_grey_1: #242625;
+$craw_grey_2: #787878;
+$craw_grey_3: #cdcdcd;
+
+// These should be set from the greys above
+$craw_grey_darkest: $craw_grey_1;
+$craw_grey_lightest: $craw_grey_3;
+
+// SETTINGS (choices)
+// ------------------
+
 // project / resarch categories
-$c_prog: #ff7f00; // orange
-$c_music:  #377eb8; // blue
-$c_clothes: #984ea3; // purple
-$c_ai: #e41a1c; // red
+$c_prog: $craw_orange;
+$c_music: $craw_blue;
+$c_clothes: $craw_purple;
+$c_ai: $craw_red;
 
 // main
-$craw_dark_grey: #242625;
-$c_border: $craw_dark_grey;
-$c_text: $craw_dark_grey;
+$c_border: $craw_grey_lightest;
+$c_text: $craw_grey_lightest;
+$c_text_em: $craw_grey_2;
+$c_text_dark: $craw_grey_darkest;
+
+/* Mixins
+*******************************************************************************/
+@mixin grey-image() {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+/* Classes
+*******************************************************************************/
 
 /*I think 380 is the smallest setting, but my phone is 360, so basing off of that*/
 header > .container.top {
@@ -19,20 +63,20 @@ header > .container.top {
 }
 
 header > .container.separator {
-  	width: 95%;
+	width: 100%;
 	padding-top: 10px;
 }
 
 .spacebar {
 	/* Default */
-	/*border-bottom: 1px solid #dddddd;*/
+	/*border-bottom: 1px solid $c_border;*/
 
 	/* Active for the programming thing (just proof of concept; should be dynamic... */
 	border-bottom: 1px solid $c_prog;
 }
 .location {
 	font-size: 9pt;
-	padding-left: 0px;
+	padding-left: 5px;
 }
 
 .project.active {
@@ -40,7 +84,7 @@ header > .container.separator {
 }
 
 body {
-	border: 10px solid $c_border;
+	//border: 10px solid $c_border;
 	color: $c_text;
 }
 
@@ -83,6 +127,7 @@ header {
 
 /* My "Max Forbes" font */
 header h1 {
+	color: $c_text_dark;
 	text-align: center;	
 	font-family: monospace;	
 	margin-bottom: 10px;
@@ -91,19 +136,21 @@ header h1 {
 	/*text-shadow: #111 0px 0px 10px;*/
 }
 
-
 header h2 {
 	font-size: 18pt;
 	margin-top: 0px;
 	margin-bottom: 0px;
+	color: $c_text_dark;
 }
 
 
 footer {
 	text-align: center;
 	padding-top: 10px;
+	padding-bottom: 10px;
 	font-size: 10pt;
 	letter-spacing: 1px;
+	border-top: 1px solid $c_border;
 }
 
 .content {
@@ -123,10 +170,13 @@ footer {
 	margin-top: 0px;
 	font-weight: 100;
 	clear: both;
+	color: $c_text_em;
 }
 
 .vertImage {
-	width: 250px;
+	//border: 1px solid $c_border;
+	@include grey-image();
+	width: $px_itemContentWidth;
 	height: auto;
 	padding-bottom: 5px;
 }
@@ -151,21 +201,23 @@ footer {
 	text-align: right;	
 }
 
-
 .content p {
 	/*font-family: "Helvetica Neue";*/
 	font-size: 9pt;
-	text-align: justify;
+	text-align: left;
+	color: $c_text_em;
 
 	/* Better justify. Not in Chrome (!). */
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;
+	// -webkit-hyphens: auto;
+	// -moz-hyphens: auto;
+	// hyphens: auto;
 }
 
 
 .simpleitem {
-	width: 250px;
-	margin: 50px;	
+	border-left: 1px solid $c_border;
+	width: $px_itemWidth;
+	margin: $px_itemMargin;
+	padding: $px_itemPadding;
 	display: inline-block;
 }
