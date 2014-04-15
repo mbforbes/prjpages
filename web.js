@@ -92,7 +92,8 @@ app.locals._ = require("underscore");
 // routing
 app.get('/item', function(request, response) {
 	var locals = {"data": data, "mdtext": ex_md_text};
-	response.render(pub_dir + 'page_post.jade', _.extend({}, jade_options, locals));
+	response.render(views_dir + 'page_post.jade',
+		_.extend({}, jade_options, locals));
 });
 
 app.get('/:cat', function(request, response) {
