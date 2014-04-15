@@ -48,6 +48,8 @@ $c_text_dark: $craw_grey_darkest;
 
 /* Mixins
 *******************************************************************************/
+// thanks to:
+// http://www.karlhorky.com/2012/06/cross-browser-image-grayscale-with-css.html
 @mixin grey-image() {
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
     filter: gray; /* IE6-9 */
@@ -211,6 +213,19 @@ footer {
 	// -webkit-hyphens: auto;
 	// -moz-hyphens: auto;
 	// hyphens: auto;
+}
+
+pre code {
+	font-size: 9pt;
+}
+
+.itemcontent {
+	// TODO(max): Make this center! Bootstrap should actually help this...
+	margin-left: 300px;
+	font-size: 9pt;
+	color: $c_text_em;
+	text-align: justify;;
+	max-width: 500px;
 }
 
 

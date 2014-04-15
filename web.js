@@ -4,8 +4,16 @@ var logger = require("morgan");
 var fs = require("fs");
 var merge = require('merge');
 var _ = require('underscore');
+var marked = require('marked');
+var highlight = require('highlight.js');
 // var jade = require("jade");
 
+// configure
+marked.setOptions({
+	highlight: function (code) {
+		return highlight.highlightAuto(code).value;
+	}
+});
 
 // functions (do they go here?)
 // Pimp my string (from
@@ -19,20 +27,20 @@ var isJson = function(file_name) {
 };
 
 
-// settings and stuff
+// settings
 var jade_options = {pretty: true};
+var app = express();
+
+// directories
 var pub_dir = __dirname + '/public/';
 var data_dir = pub_dir + 'data/';
-
 var prj_dir = data_dir + 'projects/';
 var research_dir = data_dir + 'research/';
-
 var cat_dir = data_dir + 'categories/';
 var prj_cat_file = cat_dir + 'project_categories.json';
 var research_cat_file = cat_dir + 'research_categories.json';
 
-var app = express();
-
+var ex_md_text = marked(fs.readFileSync(prj_dir + 'maxforbes.com.md', {encoding: 'utf8'}));
 
 // data
 var prj_files = _.filter(fs.readdirSync(prj_dir), isJson);
@@ -44,7 +52,7 @@ var research_jsons = [];
 var prj_cats = JSON.parse(fs.readFileSync(prj_cat_file));
 var research_cats = JSON.parse(fs.readFileSync(research_cat_file));
 
-// Grab all projects and research(es...)
+// Grab all pr]ojects and research(es...)
 for (var i = 0; i < prj_files.length; i++) {
 	var raw_json = JSON.parse(fs.readFileSync(prj_dir + prj_files[i]));
 	raw_json.section = 'project';
@@ -75,6 +83,12 @@ app.get('/', function(request, response) {
 	locals = {"data": data}
 	// console.log(locals);
 	response.render(pub_dir + 'pt_prj.jade', merge(jade_options, locals));
+});
+
+app.get('/item', function(request, response) {
+	locals = {"data": data, "mdtext": ex_md_text}
+	// console.log(locals);
+	response.render(pub_dir + 'item.jade', merge(jade_options, locals));
 });
 
 

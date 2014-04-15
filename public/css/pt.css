@@ -137,6 +137,16 @@ footer {
   color: #787878;
   /* Better justify. Not in Chrome (!). */ }
 
+pre code {
+  font-size: 9pt; }
+
+.itemcontent {
+  margin-left: 300px;
+  font-size: 9pt;
+  color: #787878;
+  text-align: justify;
+  max-width: 500px; }
+
 .simpleitem {
   border-left: 1px solid #cdcdcd;
   width: 270px;

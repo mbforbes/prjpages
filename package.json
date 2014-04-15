@@ -7,7 +7,9 @@
     "jade": "*",
     "merge": "*",
     "underscore": "*",
-    "morgan": "*"
+    "morgan": "*",
+    "marked": "*",
+    "highlight.js": "*"
   },
   "engines": {
     "node": "*",
