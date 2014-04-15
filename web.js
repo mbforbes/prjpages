@@ -2,7 +2,6 @@
 var express = require("express");
 var logger = require("morgan");
 var fs = require("fs");
-var merge = require('merge');
 var _ = require('underscore');
 var marked = require('marked');
 var highlight = require('highlight.js');
@@ -30,6 +29,7 @@ var isJson = function(file_name) {
 // settings
 var jade_options = {pretty: true};
 var app = express();
+//var router = new express.Router();
 
 // directories
 var pub_dir = __dirname + '/public/';
@@ -70,26 +70,51 @@ var data = {
 	"research_jsons": research_jsons,
 };
 
+// For safety of matching OK categories
+var ok_cats = [];
+for (var i = 0; i < prj_cats.length; i++) {
+	ok_cats.push(prj_cats[i].name);
+}
+for (var i = 0; i < research_cats.length; i++) {
+	ok_cats.push(research_cats[i].name);
+}
+
 console.log("num projects: " + prj_jsons.length);
 console.log("num research: " + research_jsons.length);
 
 // serve us up
-app.use(logger());
+//app.use(logger());
 app.use(express.static(pub_dir));
 app.locals._ = require("underscore");
 
+
 // routing
+app.get('/:cat', function(request, response) {
+	var cat = request.params.cat;
+	console.log('got cat:' + cat);
+	if (ok_cats.indexOf(cat) > -1) {
+		var activecat = cat;
+	}
+	var locals = {"data": data, "activecat": activecat};	
+	response.render(pub_dir + 'pt_prj.jade',
+		_.extend({}, jade_options, locals));
+});
+
 app.get('/', function(request, response) {
-	locals = {"data": data}
-	// console.log(locals);
-	response.render(pub_dir + 'pt_prj.jade', merge(jade_options, locals));
+	console.log('HIT ROOT');
+	var locals = {"data": data};
+	response.render(pub_dir + 'pt_prj.jade',
+		_.extend({}, jade_options, locals));
 });
 
 app.get('/item', function(request, response) {
-	locals = {"data": data, "mdtext": ex_md_text}
+	console.log('HIT ITEM');
+	var locals = {"data": data, "mdtext": ex_md_text};
 	// console.log(locals);
-	response.render(pub_dir + 'item.jade', merge(jade_options, locals));
+	response.render(pub_dir + 'item.jade', _.extend({}, jade_options, locals));
 });
+
+
 
 
 // talk to the outside world

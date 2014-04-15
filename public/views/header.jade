@@ -2,21 +2,24 @@ header
 	.container.top
 		.row.maxbar
 			.col-xs-12
-				h1 Max Forbes
+				h1
+					a(href='/')
+						| Max Forbes
 		.row.linkbar
 			.col-xs-6.prjLink
 				h2 projects
 			.col-xs-6.researchLink
 				h2 research
 		.row.areas
-			.col-xs-6.projects
+			.col-xs-6.projects.cats
 				each pc in data.prj_cats
 					include project_cat
-			.col-xs-6.research
+			.col-xs-6.research.cats
 				each rc in data.research_cats
 					include research_cat
 	.container.separator
 		.row
-			.col-xs-12.spacebar
+			.col-xs-12.spacebar(class=activecat)
 			.col-xs-12.location
-				| displaying: programming.all
+				| displaying: 
+				include location

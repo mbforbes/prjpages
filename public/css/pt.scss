@@ -6,10 +6,16 @@
 
 /* Size constants
 *******************************************************************************/
+
+// item view spacing
 $px_itemContentWidth: 250px;
 $px_itemPadding: 10px;
 $px_itemWidth: $px_itemContentWidth + (2 * $px_itemPadding);
 $px_itemMargin: 50px;
+
+// spacebar
+$sb_size: 1px;
+$sb_style: solid;
 
 /* Colors
 *******************************************************************************/
@@ -19,6 +25,7 @@ $px_itemMargin: 50px;
 // These are from Color Brewer
 $craw_orange: #ff7f00;
 $craw_blue: #377eb8;
+$craw_green: #33a02c;
 $craw_purple: #984ea3;
 $craw_red: #e41a1c;
 
@@ -37,8 +44,8 @@ $craw_grey_lightest: $craw_grey_3;
 // project / resarch categories
 $c_prog: $craw_orange;
 $c_music: $craw_blue;
-$c_clothes: $craw_purple;
-$c_ai: $craw_red;
+$c_clothes: $craw_green;
+$c_ai: $craw_purple;
 
 // main
 $c_border: $craw_grey_lightest;
@@ -71,19 +78,38 @@ header > .container.separator {
 
 .spacebar {
 	/* Default */
-	/*border-bottom: 1px solid $c_border;*/
-
-	/* Active for the programming thing (just proof of concept; should be dynamic... */
-	border-bottom: 1px solid $c_prog;
+	border-bottom: $sb_size $sb_style $c_border;
 }
+
+.spacebar.programming {
+	border-bottom: $sb_size $sb_style $c_prog; }
+.spacebar.music {
+	border-bottom: $sb_size $sb_style $c_music; }
+.spacebar.clothes {
+	border-bottom: $sb_size $sb_style $c_clothes; }
+.spacebar.ai {
+	border-bottom: $sb_size $sb_style $c_ai; }
+
 .location {
 	font-size: 9pt;
 	padding-left: 5px;
 }
 
-.project.active {
-	color: $c_prog;
+// Match before the specifics (not selected)
+.cats a, .cats a:visited {
+	color: $c_text;
 }
+
+
+// The specifics (selected). Can add .cats to all if this breaks.
+.programming a, .programming a:visited{
+	color: $c_prog; }
+.music a, .music a:visited {
+	color: $c_music; }
+.clothes a, .clothes a:visited {
+	color: $c_clothes; }
+.ai a, .ai a:visited {
+	color: $c_ai; }
 
 body {
 	//border: 10px solid $c_border;
@@ -128,7 +154,7 @@ header {
 }
 
 /* My "Max Forbes" font */
-header h1 {
+header h1, header h1 a:hover, header h1 a {
 	color: $c_text_dark;
 	text-align: center;	
 	font-family: monospace;	

@@ -3,8 +3,8 @@
 //   name : "programming",
 //   icon : "glyphicon-sound-stereo",
 // } 
-if pc.active
-	.project.active
+if activecat == pc.name
+	div(class=pc.name)
 		include _project_cat_inner
 else
 	include _project_cat_inner

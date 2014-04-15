@@ -3,8 +3,8 @@
 //   name : "ai",
 //   icon : "glyphicon-eye-close",
 // } 
-if rc.active
-	.research.active
+if activecat == rc.name
+	div(class=rc.name)
 		include _research_cat_inner
 else
 	include _research_cat_inner

@@ -5,7 +5,6 @@
     "colors": "*",
     "express": "*",
     "jade": "*",
-    "merge": "*",
     "underscore": "*",
     "morgan": "*",
     "marked": "*",
