@@ -89,6 +89,13 @@ app.locals._ = require("underscore");
 
 
 // routing
+app.get('/item', function(request, response) {
+	console.log('HIT ITEM');
+	var locals = {"data": data, "mdtext": ex_md_text};
+	// console.log(locals);
+	response.render(pub_dir + 'item.jade', _.extend({}, jade_options, locals));
+});
+
 app.get('/:cat', function(request, response) {
 	var cat = request.params.cat;
 	console.log('got cat:' + cat);
@@ -106,16 +113,6 @@ app.get('/', function(request, response) {
 	response.render(pub_dir + 'pt_prj.jade',
 		_.extend({}, jade_options, locals));
 });
-
-app.get('/item', function(request, response) {
-	console.log('HIT ITEM');
-	var locals = {"data": data, "mdtext": ex_md_text};
-	// console.log(locals);
-	response.render(pub_dir + 'item.jade', _.extend({}, jade_options, locals));
-});
-
-
-
 
 // talk to the outside world
 var port = process.env.PORT || 5000;
