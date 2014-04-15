@@ -33,6 +33,7 @@ var app = express();
 
 // directories
 var pub_dir = __dirname + '/public/';
+var views_dir = pub_dir + 'views/';
 var data_dir = pub_dir + 'data/';
 var prj_dir = data_dir + 'projects/';
 var research_dir = data_dir + 'research/';
@@ -83,34 +84,30 @@ console.log("num projects: " + prj_jsons.length);
 console.log("num research: " + research_jsons.length);
 
 // serve us up
-//app.use(logger());
+app.use(logger());
 app.use(express.static(pub_dir));
 app.locals._ = require("underscore");
 
 
 // routing
 app.get('/item', function(request, response) {
-	console.log('HIT ITEM');
 	var locals = {"data": data, "mdtext": ex_md_text};
-	// console.log(locals);
-	response.render(pub_dir + 'item.jade', _.extend({}, jade_options, locals));
+	response.render(pub_dir + 'page_post.jade', _.extend({}, jade_options, locals));
 });
 
 app.get('/:cat', function(request, response) {
 	var cat = request.params.cat;
-	console.log('got cat:' + cat);
 	if (ok_cats.indexOf(cat) > -1) {
 		var activecat = cat;
 	}
 	var locals = {"data": data, "activecat": activecat};	
-	response.render(pub_dir + 'pt_prj.jade',
+	response.render(views_dir + 'page_overview.jade',
 		_.extend({}, jade_options, locals));
 });
 
 app.get('/', function(request, response) {
-	console.log('HIT ROOT');
 	var locals = {"data": data};
-	response.render(pub_dir + 'pt_prj.jade',
+	response.render(views_dir + 'page_overview.jade',
 		_.extend({}, jade_options, locals));
 });
 
