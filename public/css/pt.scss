@@ -221,7 +221,7 @@ pre code {
 
 .itemcontent {
 	// TODO(max): Make this center! Bootstrap should actually help this...
-	margin-left: 300px;
+	margin: 0 auto;
 	font-size: 9pt;
 	color: $c_text_em;
 	text-align: justify;;

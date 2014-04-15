@@ -141,7 +141,7 @@ pre code {
   font-size: 9pt; }
 
 .itemcontent {
-  margin-left: 300px;
+  margin: 0 auto;
   font-size: 9pt;
   color: #787878;
   text-align: justify;
