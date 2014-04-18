@@ -11,10 +11,13 @@ I created this website using a slew of technologies, none of which I paid for (b
 	- morgan
 	- marked
 	- highlight
+	- cson
 - markdown
 - heroku
 - sublime
 - github
+- bootstrap
+- sass
 
 Here's some other crap with which we should test out markdown
 
@@ -24,11 +27,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis et te
 
 Duis cursus, ligula a eleifend sagittis, quam eros lobortis risus, ut rutrum sapien nulla in metus. Nullam fermentum felis ante, at faucibus felis adipiscing non. Maecenas aliquam ipsum et libero bibendum, eu condimentum lorem molestie. Pellentesque fermentum ante id vehicula volutpat. Aenean id diam justo. Ut turpis diam, egestas consectetur cursus quis, bibendum in eros. Cras et turpis tortor. Maecenas sodales vehicula turpis, vel porttitor purus scelerisque quis. Pellentesque aliquet, arcu vel sollicitudin porta, tortor risus lacinia ante, quis lobortis lectus nunc ut neque. Maecenas ac dui vehicula, auctor lectus non, volutpat erat. Suspendisse potenti. Nunc sagittis dolor sit amet elementum auctor.
 
-Sed cursus risus mi, eget viverra lacus tincidunt eget. Donec ac nulla in augue laoreet suscipit. Phasellus consequat ipsum eget enim hendrerit, et porta quam luctus. Duis et neque viverra, congue ligula et, ornare mauris. Maecenas iaculis adipiscing nisl, viverra bibendum mi rhoncus consequat. Pellentesque rutrum lobortis euismod. Etiam porttitor quam et metus adipiscing vulputate. Donec aliquam vestibulum justo, eget bibendum magna. In tempus ut turpis et hendrerit. Donec mattis enim sed auctor lobortis.
+Image: 
+
+![Picture of a robot](../images/robot.jpg)
+
+Sed cursus risus mi, eget viverra lacus tincidunt eget. Donec ac nulla in augue laoreet suscipit. Phasellus consequat ipsum eget enim hendrerit, et porta quam luctus.
+
+Duis et neque viverra, congue ligula et, ornare mauris. Maecenas iaculis adipiscing nisl, viverra bibendum mi rhoncus consequat. Pellentesque rutrum lobortis euismod. Etiam porttitor quam et metus adipiscing vulputate. Donec aliquam vestibulum justo, eget bibendum magna. In tempus ut turpis et hendrerit. Donec mattis enim sed auctor lobortis.
 
 ## Some code
 
-Code is so great! Here we go:
+Code is so great! Here we go!
 
 ```javascript
 // functions (do they go here?)

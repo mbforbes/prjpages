@@ -6,16 +6,24 @@
 
 /* Size constants
 *******************************************************************************/
+// spacebar
+$sb_size: 1px;
+$sb_style: solid;
 
-// item view spacing
+// overview spacing
 $px_itemContentWidth: 250px;
 $px_itemPadding: 10px;
 $px_itemWidth: $px_itemContentWidth + (2 * $px_itemPadding);
 $px_itemMargin: 50px;
 
-// spacebar
-$sb_size: 1px;
-$sb_style: solid;
+// post view sizes
+$pt_postFontSize: 9pt;
+// want to use pt, but CSS just can't mix them well...
+//$pt_postMaxWidth: 375pt; 
+$px_postMaxWidth: 500px;
+$px_imgWidth: 200px;
+$px_imgPad: 35px;
+$px_screenWideMin: $px_postMaxWidth + (($px_imgPad + $px_imgWidth) * 2);
 
 /* Colors
 *******************************************************************************/
@@ -45,7 +53,7 @@ $craw_grey_lightest: $craw_grey_3;
 $c_prog: $craw_orange;
 $c_music: $craw_blue;
 $c_clothes: $craw_green;
-$c_ai: $craw_purple;
+$c_robotics: $craw_purple;
 
 // main
 $c_border: $craw_grey_lightest;
@@ -61,6 +69,24 @@ $c_text_dark: $craw_grey_darkest;
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
     filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+/* Note: SASS bug: can't use variables within CSS functions (like calc).*/
+/* Must manually set all to 50% + ($px_imgWidth + <desired padding>) */
+@mixin left-calc($expr) {
+	/* Firefox */
+	left: -moz-calc(#{$expr});
+	/* WebKit */
+	left: -webkit-calc(#{$expr});
+	/* Opera */
+	left: -o-calc(#{$expr});
+	/* Standard */
+	left: calc(#{$expr});
+}
+
+/* Cross-browser calc() */
+@mixin x-calc($expr) {
+
 }
 
 /* Classes
@@ -87,8 +113,8 @@ header > .container.separator {
 	border-bottom: $sb_size $sb_style $c_music; }
 .spacebar.clothes {
 	border-bottom: $sb_size $sb_style $c_clothes; }
-.spacebar.ai {
-	border-bottom: $sb_size $sb_style $c_ai; }
+.spacebar.robotics {
+	border-bottom: $sb_size $sb_style $c_robotics; }
 
 .location {
 	font-size: 9pt;
@@ -108,8 +134,8 @@ header > .container.separator {
 	color: $c_music; }
 .clothes a, .clothes a:visited {
 	color: $c_clothes; }
-.ai a, .ai a:visited {
-	color: $c_ai; }
+.robotics a, .robotics a:visited {
+	color: $c_robotics; }
 
 body {
 	//border: 10px solid $c_border;
@@ -223,7 +249,6 @@ footer {
 	margin-left: 8px;
 }
 
-
 .simpleicon {
 	float: right;
 	text-align: right;	
@@ -242,16 +267,36 @@ footer {
 }
 
 pre code {
-	font-size: 9pt;
+	font-size: $pt_postFontSize;
 }
 
 .itemcontent {
 	// TODO(max): Make this center! Bootstrap should actually help this...
 	margin: 0 auto;
-	font-size: 9pt;
+	font-size: $pt_postFontSize;
 	color: $c_text_em;
-	text-align: justify;;
-	max-width: 500px;
+	text-align: justify;
+	max-width: $px_postMaxWidth;
+
+	img {
+		@include grey-image();
+
+		/* With a small screen, show image inline. */
+		@media (max-width: $px_screenWideMin) {
+			max-width: $px_postMaxWidth;
+			text-align: center;
+		}
+		/* With a big screen, show image to right. */
+		@media (min-width: $px_screenWideMin) {
+			max-width: $px_imgWidth;			
+			position: absolute;
+			@include left-calc("50% + #{$px_postMaxWidth} / 2 + #{$px_imgPad}");
+		}
+
+
+
+
+	}
 }
 
 
