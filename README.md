@@ -7,13 +7,15 @@ A website with Node, Jade, SASS and more.
 ## About
 This is a personal website whose primpary purpose is to showcase the projects I work on.
 
-* Having last used Rails, I wanted to check out modern technologies, so I wrote the sever in Node (as much as one needs to write a server in Node---it practically writes itself).
+* Having last used Rails, I wanted to check out the Next Cool Thing, so I wrote the sever in Node <sup>1</sup>.
 * I wanted to make it extremely easy to write posts, so I write them in Markdown.
 * I also wanted to make it easy to include structured data, so I use CSON (think JSON + Coffeescript).
 * I wanted to make the HTML reusable and small, so I write it in Jade.
 * I wanted a responsive, mobile-friendly website, so I use Bootstrap.
 * I wanted my stylesheets to be easily-customizable and changeable, so I wrote them in SASS.
 * I wanted others to use this if they wanted to, so the license is MIT.
+
+_1: _As much as one needs to write a server in Node---it practically writes itself._
 
 ## TODOs:
 * simple path matching (express)
