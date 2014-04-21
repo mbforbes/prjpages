@@ -10,7 +10,6 @@
 *******************************************************************************/
 /* Note: SASS bug: can't use variables within CSS functions (like calc).*/
 /* Must manually set all to 50% + ($px_imgWidth + <desired padding>) */
-/* Cross-browser calc() */
 /* Classes
 *******************************************************************************/
 /*I think 380 is the smallest setting, but my phone is 360, so basing off of that*/
@@ -57,7 +56,8 @@ header > .container.separator {
   color: #984ea3; }
 
 body {
-  color: #cdcdcd; }
+  color: #cdcdcd;
+  background-color: #fcfcfc; }
 
 /* Universal styles */
 header, footer, body, h1, h2, h3, h4, h5, h6 {

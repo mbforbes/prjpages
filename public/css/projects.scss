@@ -4,6 +4,7 @@
 /* Import bootstrap */
 @import "bootstrap.min.css";
 
+
 /* Size constants
 *******************************************************************************/
 // spacebar
@@ -24,6 +25,7 @@ $px_postMaxWidth: 500px;
 $px_imgWidth: 200px;
 $px_imgPad: 35px;
 $px_screenWideMin: $px_postMaxWidth + (($px_imgPad + $px_imgWidth) * 2);
+
 
 /* Colors
 *******************************************************************************/
@@ -46,6 +48,9 @@ $craw_grey_3: #cdcdcd;
 $craw_grey_darkest: $craw_grey_1;
 $craw_grey_lightest: $craw_grey_3;
 
+// For background
+$craw_offwhite: #fcfcfc;
+
 // SETTINGS (choices)
 // ------------------
 
@@ -56,10 +61,12 @@ $c_clothes: $craw_green;
 $c_robotics: $craw_purple;
 
 // main
+$c_bg: $craw_offwhite;
 $c_border: $craw_grey_lightest;
 $c_text: $craw_grey_lightest;
 $c_text_em: $craw_grey_2;
 $c_text_dark: $craw_grey_darkest;
+
 
 /* Mixins
 *******************************************************************************/
@@ -84,10 +91,6 @@ $c_text_dark: $craw_grey_darkest;
 	left: calc(#{$expr});
 }
 
-/* Cross-browser calc() */
-@mixin x-calc($expr) {
-
-}
 
 /* Classes
 *******************************************************************************/
@@ -126,7 +129,6 @@ header > .container.separator {
 	color: $c_text;
 }
 
-
 // The specifics (selected). Can add .cats to all if this breaks.
 .programming a, .programming a:visited{
 	color: $c_prog; }
@@ -140,6 +142,7 @@ header > .container.separator {
 body {
 	//border: 10px solid $c_border;
 	color: $c_text;
+	background-color: $c_bg;
 }
 
 /* Universal styles */
@@ -298,7 +301,6 @@ pre code {
 
 	}
 }
-
 
 .simpleitem {
 	border-left: 1px solid $c_border;
