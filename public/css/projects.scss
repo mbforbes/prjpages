@@ -20,7 +20,7 @@ $px_itemMargin: 50px;
 // post view sizes
 $pt_postFontSize: 9pt;
 // want to use pt, but CSS just can't mix them well...
-//$pt_postMaxWidth: 375pt; 
+//$pt_postMaxWidth: 375pt;
 $px_postMaxWidth: 500px;
 $px_imgWidth: 200px;
 $px_imgPad: 35px;
@@ -147,7 +147,7 @@ body {
 
 /* Universal styles */
 header, footer, body, h1, h2, h3, h4, h5, h6 {
-	font-family: monospace;	
+	font-family: monospace;
 }
 
 /* Spacing and nav links font */
@@ -169,7 +169,7 @@ header, footer {
 }
 
 .row .research {
-	text-align: right;	
+	text-align: right;
 }
 
 .areas > div {
@@ -185,11 +185,11 @@ header {
 /* My "Max Forbes" font */
 header h1, header h1 a:hover, header h1 a {
 	color: $c_text_dark;
-	text-align: center;	
-	font-family: monospace;	
+	text-align: center;
+	font-family: monospace;
 	margin-bottom: 10px;
-	letter-spacing: 7px;
-	font-size: 32pt;
+	//letter-spacing: 1px;
+	font-size: 29pt;
 	/*text-shadow: #111 0px 0px 10px;*/
 }
 
@@ -218,7 +218,7 @@ footer {
 .content h1 {
 	margin-top: 0px;
 	font-size: 10pt;
-	font-weight: 100;	
+	font-weight: 100;
 	letter-spacing: 2px;
 }
 
@@ -254,7 +254,7 @@ footer {
 
 .simpleicon {
 	float: right;
-	text-align: right;	
+	text-align: right;
 }
 
 .content p {
@@ -291,7 +291,7 @@ pre code {
 		}
 		/* With a big screen, show image to right. */
 		@media (min-width: $px_screenWideMin) {
-			max-width: $px_imgWidth;			
+			max-width: $px_imgWidth;
 			position: absolute;
 			@include left-calc("50% + #{$px_postMaxWidth} / 2 + #{$px_imgPad}");
 		}
