@@ -55,6 +55,11 @@ String.prototype.endsWith = function(suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
 
+// for calling in _ loop
+var endsWithThis = function(str) {
+	return str.endsWith(this);
+};
+
 // check if a file found is what we want (ignores .DS_Store, etc.)
 var isLoadable = function(file_name) {
 	for (var i = 0; i < valid_endings.length; i++) {
@@ -124,22 +129,39 @@ var loadItems = function(basedir, section, cats) {
 		console.log('candidates: ' + candidates);
 		for (var j = 0; j < candidates.length; j++) {
 			// for each entry (candidate), see if it contains an item.cson file
-			var candidatedir = catdir + candidates[j] + '/';
-			var itemfiles = _.filter(fs.readdirSync(candidatedir), equalToThis,
-				itemfile);
-			//function(filename) { return filename ==  itemfile});
-			console.log('candidatedir: ' + candidatedir);
-			console.log('itemfiles: ' + itemfiles);
+			var candidate = candidates[j];
+			var candidatedir = catdir + candidate + '/';
+			var candidatefiles = fs.readdirSync(candidatedir);
+			var itemfiles = _.filter(candidatefiles, equalToThis, itemfile);
+			console.log('\tcandidatedir: ' + candidatedir);
+			console.log('\t\titemfiles: ' + itemfiles);
 			if (itemfiles.length >= 1) {
 				// we just use the first if there's more than one itemfile
 				newitem = loadFile(candidatedir + itemfiles[0]);
 				newitem.section = section;
 				newitem.cat = cat.name;
+				newitem.name = candidate;
+
+				// load additional data here (markdown posts, etc.)
+				// here we only display the first markdown file we find
+				var mdfiles = _.filter(candidatefiles, endsWithThis, '.md');
+				if (mdfiles.length >= 1) {
+					mdfile = mdfiles[0];
+					console.log('\t\tfound post:' + mdfile);
+					newitem.post = marked(fs.readFileSync(candidatedir + mdfile,
+						{encoding: 'utf8'}));
+				}
+
 				results.push(newitem);
 			}
 		}
 	}
 	return results;
+};
+
+// simple function to get the property of an object ('passed' as context)
+var getProp = function(obj) {
+	return obj[this];
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -152,27 +174,13 @@ var research_files = _.filter(fs.readdirSync(research_dir), isLoadable);
 var prj_jsons = [];
 var research_jsons = [];
 
-// Grab all project and research categories
-// var prj_cats = loadFile(prj_cat_file);
+// Grab all project and research categories and items.
 var prj_cats = genCatsForDir(prj_dir);
-//var research_cats = loadFile(research_cat_file);
 var research_cats = genCatsForDir(research_dir);
-
-// Grab all projects and research(es...)
-for (var i = 0; i < prj_files.length; i++) {
-	var raw_json = loadFile(prj_dir + prj_files[i]);
-	raw_json.section = 'project';
-	prj_jsons.push(raw_json);
-}
-for (var i = 0; i < research_files.length; i++) {
-	var raw_json = loadFile(research_dir + research_files[i]);
-	raw_json.section = 'research';
-	research_jsons.push(raw_json);
-}
-
 var prj_jsons = loadItems(prj_dir, 'project', prj_cats);
 var research_jsons = loadItems(research_dir, 'research', research_cats);
 
+// This is passed to the renderer.
 var data = {
 	"prj_cats": prj_cats,
 	"research_cats": research_cats,
@@ -180,14 +188,9 @@ var data = {
 	"research_jsons": research_jsons,
 };
 
-// For safety of matching OK categories
-var ok_cats = [];
-for (var i = 0; i < prj_cats.length; i++) {
-	ok_cats.push(prj_cats[i].name);
-}
-for (var i = 0; i < research_cats.length; i++) {
-	ok_cats.push(research_cats[i].name);
-}
+// Further processing for routing.
+var ok_cats = _.map(prj_cats.concat(research_cats), getProp, 'name');
+var all_jsons = prj_jsons.concat(research_jsons);
 
 // Basic reporting for debugging.
 console.log("num projects: " + prj_jsons.length);
@@ -198,7 +201,7 @@ console.log(data);
 // CONFIGURE SERVER
 ////////////////////////////////////////////////////////////////////////////////
 
-app.use(logger());
+//app.use(logger());
 app.use(express.static(pub_dir));
 app.locals._ = require("underscore");
 
@@ -212,18 +215,30 @@ app.get('/item', function(request, response) {
 		_.extend({}, jade_options, locals));
 });
 
-app.get('/:cat', function(request, response) {
-	var cat = request.params.cat;
-	var activecat;
+app.get('/:cat/:item', function(request, response) {
+	var cat = request.params.cat,
+		item = request.params.item,
+		activecat,
+		activeitem;
 	if (ok_cats.indexOf(cat) > -1) {
 		activecat = cat;
 	}
-	var locals = {"data": data, "activecat": activecat};
-	response.render(views_dir + 'page_overview.jade',
+	activeitem = _.findWhere(all_jsons, {name: item, cat: cat});
+
+	// decide what to render
+	var renderpage = 'page_overview.jade';
+	if (activeitem) {
+		renderpage = 'page_post.jade';
+	}
+
+	// do it
+	var locals = {"data": data, "activecat": activecat,
+		"activeitem": activeitem};
+	response.render(views_dir + renderpage,
 		_.extend({}, jade_options, locals));
 });
 
-app.get('/:cat/:item', function(request, response) {
+app.get('/:cat', function(request, response) {
 	var cat = request.params.cat;
 	var activecat;
 	if (ok_cats.indexOf(cat) > -1) {
@@ -239,6 +254,8 @@ app.get('/', function(request, response) {
 	response.render(views_dir + 'page_overview.jade',
 		_.extend({}, jade_options, locals));
 });
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // START SERVER

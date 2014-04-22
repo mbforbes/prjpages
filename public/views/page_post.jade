@@ -3,9 +3,10 @@ html(lang='en')
 	include head
 	body
 		include header
-		
+
 		.container
 			.itemcontent
-				!=mdtext
+				if activeitem && activeitem.post
+					!=activeitem.post
 
 		include footer
