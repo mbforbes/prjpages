@@ -67,7 +67,7 @@ var isLoadable = function(file_name) {
 
 var isDirectory = function(file_path) {
 	return fs.statSync(file_path).isDirectory();
-}
+};
 
 // Load a file (must have a valid suffix).
 var loadFile = function(file_path) {
@@ -84,7 +84,7 @@ var loadFile = function(file_path) {
 // generate the project names / icons array by loading from the filesystem
 var genCatsForDir = function(dirname) {
 	var c1 = fs.readdirSync(dirname);
-	var candidates = _.filter(fs.readdirSync(dirname), 
+	var candidates = _.filter(fs.readdirSync(dirname),
 		function(f) { return fs.statSync(dirname + f).isDirectory(); });
 	var results = [];
 	for (var i = 0; i < candidates.length; i++) {
@@ -96,7 +96,19 @@ var genCatsForDir = function(dirname) {
 	return results;
 };
 
-// scanns all categories within basedir (either projects or research) and 
+// To avoid creating the function in a loop, we provide an isDirectory with
+// context for a prefix.
+var isDirectoryPrefix = function(file_path) {
+	return isDirectory(this + file_path);
+};
+
+// Also avoiding creating a function in a loop, this just checks if the
+// past argument is equal to this
+var equalToThis = function(arg) {
+	return arg == this;
+};
+
+// scanns all categories within basedir (either projects or research) and
 // gets all item objects within directories it finds
 var loadItems = function(basedir, section, cats) {
 	var results = [];
@@ -107,13 +119,15 @@ var loadItems = function(basedir, section, cats) {
 		var catdir = basedir + cat.name + '/';
 		console.log('loading items for: ' + catdir);
 		var candidates = _.filter(fs.readdirSync(catdir),
-			function(f) { return fs.statSync(catdir + f).isDirectory(); });
-		console.log('candidates: ' + candidates);		
+			isDirectoryPrefix,
+			catdir);
+		console.log('candidates: ' + candidates);
 		for (var j = 0; j < candidates.length; j++) {
 			// for each entry (candidate), see if it contains an item.cson file
 			var candidatedir = catdir + candidates[j] + '/';
-			var itemfiles = _.filter(fs.readdirSync(candidatedir),
-				function(filename) { return filename ==  itemfile});
+			var itemfiles = _.filter(fs.readdirSync(candidatedir), equalToThis,
+				itemfile);
+			//function(filename) { return filename ==  itemfile});
 			console.log('candidatedir: ' + candidatedir);
 			console.log('itemfiles: ' + itemfiles);
 			if (itemfiles.length >= 1) {
@@ -200,20 +214,22 @@ app.get('/item', function(request, response) {
 
 app.get('/:cat', function(request, response) {
 	var cat = request.params.cat;
+	var activecat;
 	if (ok_cats.indexOf(cat) > -1) {
-		var activecat = cat;
+		activecat = cat;
 	}
-	var locals = {"data": data, "activecat": activecat};	
+	var locals = {"data": data, "activecat": activecat};
 	response.render(views_dir + 'page_overview.jade',
 		_.extend({}, jade_options, locals));
 });
 
 app.get('/:cat/:item', function(request, response) {
 	var cat = request.params.cat;
+	var activecat;
 	if (ok_cats.indexOf(cat) > -1) {
-		var activecat = cat;
+		activecat = cat;
 	}
-	var locals = {"data": data, "activecat": activecat};	
+	var locals = {"data": data, "activecat": activecat};
 	response.render(views_dir + 'page_overview.jade',
 		_.extend({}, jade_options, locals));
 });
