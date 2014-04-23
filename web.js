@@ -36,14 +36,12 @@ var postfile = 'post.md'; // describes posts
 var pub_dir = __dirname + '/public/';
 var views_dir = pub_dir + 'views/';
 var data_dir = pub_dir + 'data/';
+var local_data_dir = '/data/';
 var prj_dir = data_dir + 'projects/';
 var research_dir = data_dir + 'research/';
 var cat_dir = data_dir + 'categories/';
 var prj_cat_file = cat_dir + 'project_categories.cson';
 var research_cat_file = cat_dir + 'research_categories.cson';
-var ex_md_text = marked(fs.readFileSync(prj_dir +
-	'programming/maxwellforbes.com/post.md',
-	{encoding: 'utf8'}));
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURE SERVER
@@ -53,6 +51,9 @@ var ex_md_text = marked(fs.readFileSync(prj_dir +
 // http://stackoverflow.com/questions/280634/endswith-in-javascript)
 String.prototype.endsWith = function(suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
+};
+String.prototype.startsWith = function(prefix) {
+    return this.indexOf(prefix) == 0;
 };
 
 // for calling in _ loop
@@ -136,11 +137,18 @@ var loadItems = function(basedir, section, cats) {
 			console.log('\tcandidatedir: ' + candidatedir);
 			console.log('\t\titemfiles: ' + itemfiles);
 			if (itemfiles.length >= 1) {
+				var itemname = itemfiles[0];
 				// we just use the first if there's more than one itemfile
-				newitem = loadFile(candidatedir + itemfiles[0]);
+				newitem = loadFile(candidatedir + itemname);
 				newitem.section = section;
 				newitem.cat = cat.name;
 				newitem.name = candidate;
+				// adjust image to correct path if necessary
+				if (!newitem.img_src.startsWith('http') && // not for external
+					!newitem.img_src.startsWith('/')) { // not for absolute
+					newitem.img_src = local_data_dir + section + '/' + cat.name
+						+ '/' + candidate + '/' + newitem.img_src;
+				}
 
 				// load additional data here (markdown posts, etc.)
 				// here we only display the first markdown file we find
@@ -177,7 +185,7 @@ var research_jsons = [];
 // Grab all project and research categories and items.
 var prj_cats = genCatsForDir(prj_dir);
 var research_cats = genCatsForDir(research_dir);
-var prj_jsons = loadItems(prj_dir, 'project', prj_cats);
+var prj_jsons = loadItems(prj_dir, 'projects', prj_cats);
 var research_jsons = loadItems(research_dir, 'research', research_cats);
 
 // This is passed to the renderer.
@@ -208,12 +216,6 @@ app.locals._ = require("underscore");
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURE ROUTING
 ////////////////////////////////////////////////////////////////////////////////
-
-app.get('/item', function(request, response) {
-	var locals = {"data": data, "mdtext": ex_md_text};
-	response.render(views_dir + 'page_post.jade',
-		_.extend({}, jade_options, locals));
-});
 
 app.get('/:cat/:item', function(request, response) {
 	var cat = request.params.cat,

@@ -27,9 +27,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis et te
 
 Duis cursus, ligula a eleifend sagittis, quam eros lobortis risus, ut rutrum sapien nulla in metus. Nullam fermentum felis ante, at faucibus felis adipiscing non. Maecenas aliquam ipsum et libero bibendum, eu condimentum lorem molestie. Pellentesque fermentum ante id vehicula volutpat. Aenean id diam justo. Ut turpis diam, egestas consectetur cursus quis, bibendum in eros. Cras et turpis tortor. Maecenas sodales vehicula turpis, vel porttitor purus scelerisque quis. Pellentesque aliquet, arcu vel sollicitudin porta, tortor risus lacinia ante, quis lobortis lectus nunc ut neque. Maecenas ac dui vehicula, auctor lectus non, volutpat erat. Suspendisse potenti. Nunc sagittis dolor sit amet elementum auctor.
 
-Image: 
+Image:
 
-![Picture of a robot](../images/robot.jpg)
+![Picture of a robot](/data/projects/programming/maxwellforbes.com/robot.jpg)
 
 Sed cursus risus mi, eget viverra lacus tincidunt eget. Donec ac nulla in augue laoreet suscipit. Phasellus consequat ipsum eget enim hendrerit, et porta quam luctus.
 

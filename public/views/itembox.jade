@@ -2,12 +2,12 @@
 if (!activecat) || (activecat && c.cat == activecat)
 	.simpleitem
 		if c.post
-			a(href=c.cat + '/' + c.title)
+			a(href='/' + c.cat + '/' + c.title)
 				img.vertImage(src=c.img_src, alt=c.img_alt)
 		else
 			img.vertImage(src=c.img_src, alt=c.img_alt)
 		.simpledate=c.date
-		if c.section == 'project'
+		if c.section == 'projects'
 			- var icon = _.findWhere(data.prj_cats, {name: c.cat}).icon
 		else
 			// c.section == 'research'
@@ -15,7 +15,7 @@ if (!activecat) || (activecat && c.cat == activecat)
 		.simpleicon: span(class="glyphicon", class=icon)
 		div
 			if c.post
-				a(href=c.cat + '/' + c.title)
+				a(href='/' + c.cat + '/' + c.title)
 					h2=c.title
 			else
 				h2=c.title
