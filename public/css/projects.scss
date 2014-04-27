@@ -205,8 +205,7 @@ footer {
 	text-align: center;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	font-size: 10pt;
-	letter-spacing: 1px;
+	font-size: 9pt;
 	border-top: 1px solid $c_border;
 }
 
@@ -281,9 +280,16 @@ pre code {
 	text-align: justify;
 	max-width: $px_postMaxWidth;
 
+	h1 {
+		text-align: center;
+	}
+
+	h2, h3, h4, h5, h6 {
+		text-align: left;
+	}
+
 	img {
 		@include grey-image();
-
 		/* With a small screen, show image inline. */
 		@media (max-width: $px_screenWideMin) {
 			max-width: $px_postMaxWidth;
@@ -295,10 +301,6 @@ pre code {
 			position: absolute;
 			@include left-calc("50% + #{$px_postMaxWidth} / 2 + #{$px_imgPad}");
 		}
-
-
-
-
 	}
 }
 
@@ -308,4 +310,17 @@ pre code {
 	margin: $px_itemMargin;
 	padding: $px_itemPadding;
 	display: inline-block;
+}
+
+/* Fix spacing for multi-level bullets. We want inner bullets closer
+   to their parents, and farther away from the next level below.*/
+p~ol, p~ul {
+	margin-top: -10px; /* Not right next to, but close */
+	margin-bottom: 10px; /* Get some room on the bottom! */
+}
+
+/* Hoever, with the last fix, bullets that come right after headers are
+   wonky; space them out a bit.*/
+h1~ol, h1~ul, h2~ol, h2~ul, h3~ol, h3~ul, h4~ol, h4~ul, h5~ol, h5~ul, h6~ol, h6~ul {
+	margin-top: 0px; /* Restore the natural space (remove negative). */
 }

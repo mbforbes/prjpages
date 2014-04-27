@@ -1,8 +1,7 @@
 {
-  img_src: "robot.jpg"
-  img_alt: "The NAO"
-  date: "February 15, 2014"
-  title: "Accelerating Imitation Learning through Crowdsourcing"
-  desc: 'Mike Chung and I worked with profs. Raj Rao and Maya Cakamk to explore
-	  how crowdsourcing can improve goal-based imitation learning in robotics.'
+  img_src: "helmet_and_box.png"
+  img_alt: "The NAO robot with a helmet (dark) and holding a box (heavy)."
+  date: "March 3, 2014"
+  title: "Grounding Antonym Adjective Pairs through Interaction"
+  desc: "We use generative classifiers to interactively teach a NAO robot to distinguish antonym pairs of adjectives."
 }

@@ -1,71 +1,36 @@
-# maxforbes.com
+# maxwellforbes.com
 
-I created this website using a slew of technologies, none of which I paid for (because they're free), and all of which deserve thanks. They are:
-- node.js
-	- npm
-	- colors
-	- express
-	- jade
-	- merge
-	- underscore
-	- morgan
-	- marked
-	- highlight
-	- cson
-- markdown
-- heroku
-- sublime
-- github
-- bootstrap
-- sass
+## 10 Problems and their solutions
 
-Here's some other crap with which we should test out markdown
+0. Writing posts in HTML is slow and labersome
+	- [Markdown](http://daringfireball.net/projects/markdown/), [Marked](https://github.com/chjj/marked)
 
-## Some text
+0. Maintaining HTML across a website is a pain
+	- [Jade](http://jade-lang.com/)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id turpis et tellus congue euismod. Phasellus gravida sagittis feugiat. Vivamus in tincidunt mi, nec porttitor magna. Etiam in diam nec erat varius elementum in vel elit. Etiam odio ligula, ullamcorper ut erat non, ultricies gravida erat. Ut condimentum nisi dui, ac pellentesque enim rhoncus sed. Nullam in pretium sem. Mauris non nisl pulvinar, iaculis purus ac, rutrum ipsum. Sed gravida posuere nisi ut aliquet. Nulla porttitor eros nunc, ac aliquet lacus vulputate sit amet.
+0. CSS needs to be easily modifiable and general.
+	- [SASS](http://sass-lang.com/)
 
-Duis cursus, ligula a eleifend sagittis, quam eros lobortis risus, ut rutrum sapien nulla in metus. Nullam fermentum felis ante, at faucibus felis adipiscing non. Maecenas aliquam ipsum et libero bibendum, eu condimentum lorem molestie. Pellentesque fermentum ante id vehicula volutpat. Aenean id diam justo. Ut turpis diam, egestas consectetur cursus quis, bibendum in eros. Cras et turpis tortor. Maecenas sodales vehicula turpis, vel porttitor purus scelerisque quis. Pellentesque aliquet, arcu vel sollicitudin porta, tortor risus lacinia ante, quis lobortis lectus nunc ut neque. Maecenas ac dui vehicula, auctor lectus non, volutpat erat. Suspendisse potenti. Nunc sagittis dolor sit amet elementum auctor.
+0. Mobile/tablet/desktop friendly layout is a must.
+	- [Bootstrap](http://getbootstrap.com/)
 
-Image:
+0. Structured content should be concise and easy to write.
+	- [CSON](https://github.com/bevry/cson)
 
-![Picture of a robot](/data/projects/programming/maxwellforbes.com/robot.jpg)
+0. Code I write in posts should be highlighted.
+	- [Highlight](http://highlightjs.org/)
 
-Sed cursus risus mi, eget viverra lacus tincidunt eget. Donec ac nulla in augue laoreet suscipit. Phasellus consequat ipsum eget enim hendrerit, et porta quam luctus.
+0. I need to be up-to-date with the next Cool Thing
+	- [Node](http://nodejs.org/), [Npm](https://www.npmjs.org/), [Express](http://expressjs.com/), [Underscore](http://underscorejs.org/)
 
-Duis et neque viverra, congue ligula et, ornare mauris. Maecenas iaculis adipiscing nisl, viverra bibendum mi rhoncus consequat. Pellentesque rutrum lobortis euismod. Etiam porttitor quam et metus adipiscing vulputate. Donec aliquam vestibulum justo, eget bibendum magna. In tempus ut turpis et hendrerit. Donec mattis enim sed auctor lobortis.
+0. I want to keep all of my code _and_ content backed-up.
+	- [Github](https://github.com/)
 
-## Some code
+0. I want super-easy, free deployment.
+	- [Heroku](https://www.heroku.com)
 
-Code is so great! Here we go!
+0. I want to make what I do open-source, so others can use my efforts, just as what I did made use of the efforts of others.
+	- This website's backend, frontend, and data are all [open-source on Github](https://github.com/mbforbes/prjpages).
 
-```javascript
-// functions (do they go here?)
-// Pimp my string (from
-// http://stackoverflow.com/questions/280634/endswith-in-javascript)
-String.prototype.endsWith = function(suffix) {
-    return this.indexOf(suffix, this.length - suffix.length) !== -1;
-};
-// check if a file found is what we want (ignores .DS_Store, etc.)
-var isJson = function(file_name) {
-	return file_name.endsWith('.json');
-};
-```
-
-I wonder if markdown would work?
-```Markdown
-# Here's an example structure
-[this](link addr) is a link boy
-cd
-cp
-rm
-- maybe
-	- some nested
-	- bullets
-		- woah!
-
-*what's* some other _crazy_ stuff?? & it gets better! &theta;
-```
-
-## That's not all
-contact me for more info at [my email addr.](example@example.com).
+## The result?
+You're on it. Browse around and enjoy.

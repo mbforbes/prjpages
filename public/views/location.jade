@@ -1,5 +1,9 @@
 if activecat
 	=activecat
-	| .all
+	if activeitem
+		| .
+		=activeitem.name
+	else
+		| .all
 else
 	| all

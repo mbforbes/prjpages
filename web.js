@@ -53,7 +53,7 @@ String.prototype.endsWith = function(suffix) {
     return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
 String.prototype.startsWith = function(prefix) {
-    return this.indexOf(prefix) == 0;
+    return this.indexOf(prefix) === 0;
 };
 
 // for calling in _ loop
@@ -123,19 +123,19 @@ var loadItems = function(basedir, section, cats) {
 		// find all possible project/research entries within a project /
 		// research category
 		var catdir = basedir + cat.name + '/';
-		console.log('loading items for: ' + catdir);
+		// console.log('loading items for: ' + catdir);
 		var candidates = _.filter(fs.readdirSync(catdir),
 			isDirectoryPrefix,
 			catdir);
-		console.log('candidates: ' + candidates);
+		// console.log('candidates: ' + candidates);
 		for (var j = 0; j < candidates.length; j++) {
 			// for each entry (candidate), see if it contains an item.cson file
 			var candidate = candidates[j];
 			var candidatedir = catdir + candidate + '/';
 			var candidatefiles = fs.readdirSync(candidatedir);
 			var itemfiles = _.filter(candidatefiles, equalToThis, itemfile);
-			console.log('\tcandidatedir: ' + candidatedir);
-			console.log('\t\titemfiles: ' + itemfiles);
+			// console.log('\tcandidatedir: ' + candidatedir);
+			// console.log('\t\titemfiles: ' + itemfiles);
 			if (itemfiles.length >= 1) {
 				var itemname = itemfiles[0];
 				// we just use the first if there's more than one itemfile
@@ -146,8 +146,8 @@ var loadItems = function(basedir, section, cats) {
 				// adjust image to correct path if necessary
 				if (!newitem.img_src.startsWith('http') && // not for external
 					!newitem.img_src.startsWith('/')) { // not for absolute
-					newitem.img_src = local_data_dir + section + '/' + cat.name
-						+ '/' + candidate + '/' + newitem.img_src;
+					newitem.img_src = local_data_dir + section + '/' +
+						cat.name + '/' + candidate + '/' + newitem.img_src;
 				}
 
 				// load additional data here (markdown posts, etc.)
@@ -155,7 +155,7 @@ var loadItems = function(basedir, section, cats) {
 				var mdfiles = _.filter(candidatefiles, endsWithThis, '.md');
 				if (mdfiles.length >= 1) {
 					mdfile = mdfiles[0];
-					console.log('\t\tfound post:' + mdfile);
+					// console.log('\t\tfound post:' + mdfile);
 					newitem.post = marked(fs.readFileSync(candidatedir + mdfile,
 						{encoding: 'utf8'}));
 				}
@@ -201,9 +201,9 @@ var ok_cats = _.map(prj_cats.concat(research_cats), getProp, 'name');
 var all_jsons = prj_jsons.concat(research_jsons);
 
 // Basic reporting for debugging.
-console.log("num projects: " + prj_jsons.length);
-console.log("num research: " + research_jsons.length);
-console.log(data);
+console.log("projects: " + prj_jsons.length);
+console.log("research: " + research_jsons.length);
+//console.log(data);
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURE SERVER

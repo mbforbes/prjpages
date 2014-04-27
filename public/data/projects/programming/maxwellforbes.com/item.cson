@@ -1,9 +1,9 @@
 {
-  img_src: "http://pocketscientists.com/wp-content/uploads/2012/10/robot1.png"
-  img_alt: "todo"
-  date: "February 15, 2014"
+  img_src: "mf_final.png"
+  img_alt: "Rough draft of a picture representing this website."
+  date: "April 26, 2014"
   title: "maxwellforbes.com"
-  desc: "I created this website with a slew of new-ish technologies; everything
-	  is publically available on GitHub."
+  desc: 'I built a tiny open-source web publishing platform to allow me to write
+		  and update content as easily as possible.'
   cat: "programming"
 }
