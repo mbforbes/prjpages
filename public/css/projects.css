@@ -109,6 +109,8 @@ footer {
   padding-bottom: 10px;
   font-size: 9pt;
   border-top: 1px solid #cdcdcd; }
+  footer a, footer a:hover, footer a:visited {
+    color: #787878; }
 
 .content {
   /* Centers all of the cards. */

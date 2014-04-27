@@ -37,6 +37,7 @@ var pub_dir = __dirname + '/public/';
 var views_dir = pub_dir + 'views/';
 var data_dir = pub_dir + 'data/';
 var local_data_dir = '/data/';
+var other_dir = data_dir + 'other/';
 var prj_dir = data_dir + 'projects/';
 var research_dir = data_dir + 'research/';
 var cat_dir = data_dir + 'categories/';
@@ -196,6 +197,10 @@ var data = {
 	"research_jsons": research_jsons,
 };
 
+// Additional data for other sections.
+var about_post = marked(fs.readFileSync(other_dir + "about.md",
+	{encoding: 'utf8'}));
+
 // Further processing for routing.
 var ok_cats = _.map(prj_cats.concat(research_cats), getProp, 'name');
 var all_jsons = prj_jsons.concat(research_jsons);
@@ -216,6 +221,13 @@ app.locals._ = require("underscore");
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURE ROUTING
 ////////////////////////////////////////////////////////////////////////////////
+
+app.get('/about', function(request, response) {
+	var locals = {"data": data, "activecat": "about",
+		"about_post": about_post};
+	response.render(views_dir + 'page_about.jade',
+		_.extend({}, jade_options, locals));
+});
 
 app.get('/:cat/:item', function(request, response) {
 	var cat = request.params.cat,

@@ -207,6 +207,10 @@ footer {
 	padding-bottom: 10px;
 	font-size: 9pt;
 	border-top: 1px solid $c_border;
+
+	a, a:hover, a:visited {
+		color: $c_text_em;
+	}
 }
 
 .content {
