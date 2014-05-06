@@ -1,17 +1,17 @@
 # About
-Hi, I'm Maxwell Forbes.
+Hi, I'm called Maxwell Forbes. I like flavorful beer, oily coffee, precise pens, and polite people.
 
 ![A picture of me!](/data/other/max.jpg)
 
 ## Projects
 
-I love building things, and I'm trained as a computer scientist, so this manifests as software and user-interfaces.
+I love building things, and I'm trained as a computer scientist, so this is often expressed through code.
 
-I'm interested in:
+My main project interests include:
 
-0. Beautiful data visualization, interfaces, and code
-0. Music
-0. Dance Dance Revolution, ultimate frisbee, and bouldering
+0. Data visualization, games, and organization
+0. Music composition and performance
+0. Clothing modification
 
 ## Research
 
