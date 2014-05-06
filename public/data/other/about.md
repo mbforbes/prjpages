@@ -1,5 +1,5 @@
 # About
-Hi, I'm called Maxwell Forbes. I like flavorful beer, oily coffee, precise pens, and polite people.
+Hi, I'm called Maxwell Forbes. I like flavorful beer, oily coffee, and felt-tip pens.
 
 ![A picture of me!](/data/other/max.jpg)
 
