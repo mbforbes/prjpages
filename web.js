@@ -115,52 +115,51 @@ var equalToThis = function(arg) {
 	return arg == this;
 };
 
-// scanns all categories within basedir (either projects or research) and
-// gets all item objects within directories it finds
+// Scans all categories within basedir (either projects or research) and gets
+//  all item objects within directories it finds.
 var loadItems = function(basedir, section, cats) {
 	var results = [];
 	for (var i = 0; i < cats.length; i++) {
 		var cat = cats[i];
-		// find all possible project/research entries within a project /
+		// Find all possible project/research entries within a project /
 		// research category
 		var catdir = basedir + cat.name + '/';
-		// console.log('loading items for: ' + catdir);
 		var candidates = _.filter(fs.readdirSync(catdir),
 			isDirectoryPrefix,
 			catdir);
-		// console.log('candidates: ' + candidates);
 		for (var j = 0; j < candidates.length; j++) {
-			// for each entry (candidate), see if it contains an item.cson file
+			// For each entry (candidate), see if it contains an item.cson file
 			var candidate = candidates[j];
 			var candidatedir = catdir + candidate + '/';
 			var candidatefiles = fs.readdirSync(candidatedir);
 			var itemfiles = _.filter(candidatefiles, equalToThis, itemfile);
-			// console.log('\tcandidatedir: ' + candidatedir);
-			// console.log('\t\titemfiles: ' + itemfiles);
 			if (itemfiles.length >= 1) {
+				// We've found an itemfile. Load that, and then we'll load any
+				// additional data (e.g. markdown posts).
+
+				// We just use the first if there's more than one itemfile.
 				var itemname = itemfiles[0];
-				// we just use the first if there's more than one itemfile
 				newitem = loadFile(candidatedir + itemname);
 				newitem.section = section;
 				newitem.cat = cat.name;
 				newitem.name = candidate;
-				// adjust image to correct path if necessary
+				// Adjust image to correct path if necessary.
 				if (!newitem.img_src.startsWith('http') && // not for external
 					!newitem.img_src.startsWith('/')) { // not for absolute
 					newitem.img_src = local_data_dir + section + '/' +
 						cat.name + '/' + candidate + '/' + newitem.img_src;
 				}
 
-				// load additional data here (markdown posts, etc.)
-				// here we only display the first markdown file we find
+				// Load additional data here (markdown posts, etc.).
+				// Here we only display the first markdown file we find.
 				var mdfiles = _.filter(candidatefiles, endsWithThis, '.md');
 				if (mdfiles.length >= 1) {
 					mdfile = mdfiles[0];
-					// console.log('\t\tfound post:' + mdfile);
 					newitem.post = marked(fs.readFileSync(candidatedir + mdfile,
 						{encoding: 'utf8'}));
 				}
 
+				// Finished; add to results.
 				results.push(newitem);
 			}
 		}
