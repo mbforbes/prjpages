@@ -3,13 +3,14 @@ html(lang='en')
 	include head
 	body
 		include header
-		
+
 		// .container
 		.content
-			// Todo: sort
-			each c in data.prj_jsons
-				include itembox
-			each c in data.research_jsons
+			// Merge, sort newest first
+			- var all_jsons = data.prj_jsons.concat(data.research_jsons)
+			- all_jsons.sort(function(a,b){return (new Date(b.date)) - (new Date(a.date));})
+			// Display
+			each c in all_jsons
 				include itembox
 
 		include footer

@@ -218,57 +218,73 @@ app.use(express.static(pub_dir));
 app.locals._ = require("underscore");
 
 ////////////////////////////////////////////////////////////////////////////////
+// RENDER FUNCTIONS
+////////////////////////////////////////////////////////////////////////////////
+
+var render_root = function(request, response) {
+	var locals = {"data": data};
+	response.render(views_dir + 'page_overview.jade',
+		_.extend({}, jade_options, locals));
+};
+
+var render_cat = function(request, response) {
+	var cat = request.params.cat;
+	if (ok_cats.indexOf(cat) > -1) {
+		// valid category; render category
+		var locals = {"data": data, "activecat": cat};
+		response.render(views_dir + 'page_overview.jade',
+			_.extend({}, jade_options, locals));
+	} else {
+		// default: render root
+		render_root(request, response);
+	}
+};
+
+var render_item = function(request, response) {
+	var cat = request.params.cat,
+		item = request.params.item,
+		activeitem;
+	if (ok_cats.indexOf(cat) > -1) {
+		// good cat! at least render cat (maybe even item)
+		activeitem = _.findWhere(all_jsons, {name: item, cat: cat});
+		if (activeitem) {
+			// good item!
+			var locals = {
+				"data": data,
+				"activecat": cat,
+				"activeitem": activeitem
+			};
+			response.render(views_dir + 'page_post.jade',
+				_.extend({}, jade_options, locals));
+		} else {
+			// bad item; just render cat
+			render_cat(request, response);
+		}
+	} else {
+		// bad cat; render root
+		render_root(request, response);
+	}
+};
+
+////////////////////////////////////////////////////////////////////////////////
 // CONFIGURE ROUTING
 ////////////////////////////////////////////////////////////////////////////////
 
 app.get('/about', function(request, response) {
-	var locals = {"data": data, "activecat": "about",
-		"about_post": about_post};
+	var locals = {
+		"data": data,
+		"activecat": "about",
+		"about_post": about_post
+	};
 	response.render(views_dir + 'page_about.jade',
 		_.extend({}, jade_options, locals));
 });
 
-app.get('/:cat/:item', function(request, response) {
-	var cat = request.params.cat,
-		item = request.params.item,
-		activecat,
-		activeitem;
-	if (ok_cats.indexOf(cat) > -1) {
-		activecat = cat;
-	}
-	activeitem = _.findWhere(all_jsons, {name: item, cat: cat});
+app.get('/:cat/:item', render_item);
 
-	// decide what to render
-	var renderpage = 'page_overview.jade';
-	if (activeitem) {
-		renderpage = 'page_post.jade';
-	}
+app.get('/:cat', render_cat);
 
-	// do it
-	var locals = {"data": data, "activecat": activecat,
-		"activeitem": activeitem};
-	response.render(views_dir + renderpage,
-		_.extend({}, jade_options, locals));
-});
-
-app.get('/:cat', function(request, response) {
-	var cat = request.params.cat;
-	var activecat;
-	if (ok_cats.indexOf(cat) > -1) {
-		activecat = cat;
-	}
-	var locals = {"data": data, "activecat": activecat};
-	response.render(views_dir + 'page_overview.jade',
-		_.extend({}, jade_options, locals));
-});
-
-app.get('/', function(request, response) {
-	var locals = {"data": data};
-	response.render(views_dir + 'page_overview.jade',
-		_.extend({}, jade_options, locals));
-});
-
-
+app.get('/', render_root);
 
 ////////////////////////////////////////////////////////////////////////////////
 // START SERVER
