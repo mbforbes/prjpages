@@ -182,14 +182,16 @@ pre code {
     /* IE6-9 */
     -webkit-filter: grayscale(100%);
     /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-    /* With a small screen, show image inline. */
-    /* With a big screen, show image to right. */ }
+    /* With a small screen, show image inline. */ }
     @media (max-width: 970px) {
       .itemcontent img {
         max-width: 500px;
         text-align: center; } }
+  .itemcontent img:not(.inline) {
+    	/* For images not marked as inline, and with a big screen,
+       show image to right. */ }
     @media (min-width: 970px) {
-      .itemcontent img {
+      .itemcontent img:not(.inline) {
         max-width: 200px;
         position: absolute;
         /* Firefox */
@@ -200,6 +202,8 @@ pre code {
         left: -o-calc(50% + 500px / 2 + 35px);
         /* Standard */
         left: calc(50% + 500px / 2 + 35px); } }
+  .itemcontent table td {
+    padding-left: 7px; }
 
 .simpleitem {
   border-left: 1px solid #cdcdcd;

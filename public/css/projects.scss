@@ -294,17 +294,26 @@ pre code {
 
 	img {
 		@include grey-image();
+
 		/* With a small screen, show image inline. */
 		@media (max-width: $px_screenWideMin) {
 			max-width: $px_postMaxWidth;
 			text-align: center;
 		}
-		/* With a big screen, show image to right. */
+	}
+
+	img:not(.inline) {
+		/* For images not marked as inline, and with a big screen,
+	   show image to right. */
 		@media (min-width: $px_screenWideMin) {
 			max-width: $px_imgWidth;
 			position: absolute;
 			@include left-calc("50% + #{$px_postMaxWidth} / 2 + #{$px_imgPad}");
 		}
+	}
+
+	table td {
+		padding-left: 7px;
 	}
 }
 
