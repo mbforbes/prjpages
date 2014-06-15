@@ -13,5 +13,21 @@ We aim to build robots that perceive the world on a higher abstraction level tha
 ## Additional information
 I presented this paper at the [HRI 2014 Workshop on Asymmetric Interactions](https://aiweb.techfak.uni-bielefeld.de/hri2014_workshop_asymmetric_interactions/program.html).
 
-- full text: <a href="/data/research/robotics/forbes2014grounding/forbes2014grounding.pdf"><span class="glyphicon glyphicon-file"></span></a>
-- slides: <a href="/data/research/robotics/forbes2014grounding/forbes2014grounding_slides.pdf"><span class="glyphicon glyphicon-th-large"></span></a>
+<table>
+	<tr>
+		<td>full text</td>
+		<td>
+			<a href="/data/research/robotics/forbes2014grounding/forbes2014grounding.pdf">
+				<span class="glyphicon glyphicon-file"></span>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td>slides</td>
+		<td>
+			<a href="/data/research/robotics/forbes2014grounding/forbes2014grounding_slides.pdf">
+				<span class="glyphicon glyphicon-th-large"></span>
+			</a>
+		</td>
+	</tr>
+</table>

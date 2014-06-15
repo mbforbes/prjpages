@@ -12,4 +12,13 @@ Although imitation learning is a powerful technique for robot learning and knowl
 ## Additional information
 This paper was presented by Michael Jae-Yoon Chung at [ICRA 2014](https://ras.papercept.net/conferences/conferences/ICRA14/program/ICRA14_ContentListWeb_5.html#wea14_03).
 
-- full text: <a href="/data/research/robotics/chung2014accelerating/chung2014accelerating.pdf"><span class="glyphicon glyphicon-file"></span></a>
+<table>
+	<tr>
+		<td>full text</td>
+		<td>
+			<a href="/data/research/robotics/chung2014accelerating/chung2014accelerating.pdf">
+				<span class="glyphicon glyphicon-file"></span>
+			</a>
+		</td>
+	</tr>
+</table>
