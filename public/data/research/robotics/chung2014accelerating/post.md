@@ -27,6 +27,7 @@ This paper was presented by Michael Jae-Yoon Chung at [ICRA 2014](https://ras.pa
 			[Popular Science](http://www.popsci.com/article/technology/robot-learns-asking-strangers-internet),
 			[IEEE Spectrum](http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/please-tell-this-robot-what-a-turtle-looks-like),
 			[UW](http://www.washington.edu/news/2014/06/26/ask-the-crowd-robots-learn-faster-better-with-online-helpers/),
+			[UW Daily](http://dailyuw.com/archive/2014/07/08/science/learning-crowd#.U71ec_ldXNM),
 			[Kurzweil AI](http://www.kurzweilai.net/crowdsourcing-for-robots),
 			[Phys.org](http://phys.org/news/2014-06-crowd-robots-faster-online-helpers.html),
 			[Gigaom](http://gigaom.com/2014/06/27/new-research-shows-robots-can-learn-quite-a-bit-when-fed-a-lot-of-data/),
