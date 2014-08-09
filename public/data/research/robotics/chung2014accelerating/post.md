@@ -26,13 +26,15 @@ This paper was presented by Michael Jae-Yoon Chung at [ICRA 2014](https://ras.pa
 		<td>
 			[Popular Science](http://www.popsci.com/article/technology/robot-learns-asking-strangers-internet),
 			[IEEE Spectrum](http://spectrum.ieee.org/automaton/robotics/artificial-intelligence/please-tell-this-robot-what-a-turtle-looks-like),
+			[Wired UK](http://www.wired.co.uk/news/archive/2014-07/24/robots-build-lego-turtles),
 			[UW](http://www.washington.edu/news/2014/06/26/ask-the-crowd-robots-learn-faster-better-with-online-helpers/),
 			[UW Daily](http://dailyuw.com/archive/2014/07/08/science/learning-crowd#.U71ec_ldXNM),
-			[Kurzweil AI](http://www.kurzweilai.net/crowdsourcing-for-robots),
-			[Phys.org](http://phys.org/news/2014-06-crowd-robots-faster-online-helpers.html),
-			[Gigaom](http://gigaom.com/2014/06/27/new-research-shows-robots-can-learn-quite-a-bit-when-fed-a-lot-of-data/),
-			[ECN](http://www.ecnmag.com/news/2014/06/robots-learn-faster-better-online-helpers),
-			[Nature World News](http://www.natureworldnews.com/articles/7805/20140627/web-wisdom-more-robots-learn-crowdsourcing.htm),
-			[Daily Digest News](http://dailydigestnews.com/2014/06/scientists-robots-can-learn-to-learn-from-crowdsourcing/)
+			[Correio Braziliense (Portuguese)](/data/research/robotics/chung2014accelerating/correio_braziliense.pdf)
+			<!-- [Kurzweil AI](http://www.kurzweilai.net/crowdsourcing-for-robots), -->
+			<!-- [Phys.org](http://phys.org/news/2014-06-crowd-robots-faster-online-helpers.html), -->
+			<!-- [Gigaom](http://gigaom.com/2014/06/27/new-research-shows-robots-can-learn-quite-a-bit-when-fed-a-lot-of-data/), -->
+			<!-- [ECN](http://www.ecnmag.com/news/2014/06/robots-learn-faster-better-online-helpers), -->
+			<!-- [Nature World News](http://www.natureworldnews.com/articles/7805/20140627/web-wisdom-more-robots-learn-crowdsourcing.htm), -->
+			<!-- [Daily Digest News](http://dailydigestnews.com/2014/06/scientists-robots-can-learn-to-learn-from-crowdsourcing/) -->
 		</td>
 </table>
