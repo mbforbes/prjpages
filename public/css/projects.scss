@@ -296,10 +296,17 @@ pre code {
 		@include grey-image();
 
 		/* With a small screen, show image inline. */
-		@media (max-width: $px_screenWideMin) {
+		@media (max-width: $px_screenWideMin) and (min-width: $px_postMaxWidth) {
 			max-width: $px_postMaxWidth;
 			text-align: center;
 		}
+
+		/* With a tiny screen, show image at most full width. */
+		@media (max-width: $px_postMaxWidth) {
+			max-width: 100%;
+			text-align: center;
+		}
+
 	}
 
 	img:not(.inline) {

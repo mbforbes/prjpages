@@ -182,10 +182,15 @@ pre code {
     /* IE6-9 */
     -webkit-filter: grayscale(100%);
     /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-    /* With a small screen, show image inline. */ }
-    @media (max-width: 970px) {
+    /* With a small screen, show image inline. */
+    /* With a tiny screen, show image at most full width. */ }
+    @media (max-width: 970px) and (min-width: 500px) {
       .itemcontent img {
         max-width: 500px;
+        text-align: center; } }
+    @media (max-width: 500px) {
+      .itemcontent img {
+        max-width: 100%;
         text-align: center; } }
   .itemcontent img:not(.inline) {
     	/* For images not marked as inline, and with a big screen,
