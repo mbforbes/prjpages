@@ -12,3 +12,6 @@ bootstrap
 
 # Note(max): We're using sass so don't want to track cache.
 .sass-cache
+
+# Note(max): Ignore generated log files.
+*.log

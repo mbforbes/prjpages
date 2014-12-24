@@ -33,6 +33,6 @@ I'm broadly interested in artifical intelligence, and specifically at the inters
 
 ## Current
 
-I work as a software engineer at Google on [Kubernetes](https://github.com/googlecloudplatform/kubernetes) and [GKE](https://cloud.google.com/container-engine/).
+I work as a software engineer at Google on [Kubernetes](http://kubernetes.io) and [GKE](https://cloud.google.com/container-engine/).
 
 If you'd like to get in touch, please don't hesitate to email me at <img alt="my email address as a sneaky image" src="/data/other/email.png" class="inline" />.
