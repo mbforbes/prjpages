@@ -81,8 +81,7 @@ var loadFile = function(file_path) {
 	if (file_path.endsWith('.json')) {
 		return JSON.parse(fs.readFileSync(file_path));
 	} else if (file_path.endsWith('.cson')) {
-		var tmp = CSON.parseFileSync(file_path);
-		return CSON.parseFileSync(file_path);
+		return CSON.load(file_path);
 	} else {
 		console.warn('File ending not implemented for: ' + file_path);
 	}

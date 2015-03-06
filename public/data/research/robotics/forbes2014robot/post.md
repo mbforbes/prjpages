@@ -16,7 +16,7 @@ I presented this paper at [HCOMP 2014](http://humancomputation.com/2014/program.
 	<tr>
 		<td>full text</td>
 		<td>
-			<a href="/data/research/robotics/forbes2014robot/forbes2014hcomp.pdf">
+			<a href="/data/research/robotics/forbes2014robot/forbes2014robot.pdf">
 				<span class="glyphicon glyphicon-file"></span>
 			</a>
 		</td>
