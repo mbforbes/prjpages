@@ -1,6 +1,6 @@
 {
-  "name": "node-example",
-  "version": "0.0.1",
+  "name": "maxforbes-prjpages",
+  "version": "0.1.0",
   "dependencies": {
     "colors": "*",
     "express": "*",
@@ -9,7 +9,7 @@
     "morgan": "*",
     "marked": "*",
     "highlight.js": "*",
-    "cson": "*"
+    "cson": "2.*"
   },
   "engines": {
     "node": "*",
