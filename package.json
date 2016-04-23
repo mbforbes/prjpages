@@ -1,6 +1,6 @@
 {
-  "name": "maxforbes-prjpages",
-  "version": "0.1.0",
+  "name": "mbforbes-prjpages",
+  "version": "0.2.0",
   "dependencies": {
     "colors": "*",
     "express": "*",
@@ -9,9 +9,12 @@
     "morgan": "*",
     "markdown-it": "*",
     "markdown-it-anchor": "*",
+    "markdown-it-footnote": "*",
     "highlight.js": "*",
     "cson": "2.*"
   },
+  "repository": "github.com/mbforbes/prjpages",
+  "license": "MIT",
   "engines": {
     "node": "*",
     "npm": "*"

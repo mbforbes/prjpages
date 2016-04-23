@@ -199,6 +199,8 @@ pre code {
       .itemcontent img {
         max-width: 100%;
         text-align: center; } }
+  .itemcontent img.spaced {
+    margin-top: 25px; }
   .itemcontent img:not(.inline) {
     	/* For images not marked as inline, and with a big screen,
        show image to right. */ }
@@ -216,6 +218,20 @@ pre code {
         left: calc(50% + 500px / 2 + 35px); } }
   .itemcontent table td {
     padding-left: 7px; }
+  .itemcontent .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0px; }
+    .itemcontent .videoWrapper iframe {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%; }
+  .itemcontent .footnotes {
+    font-size: 11pt; }
 
 .simpleitem {
   border-left: 1px solid #585858;
@@ -237,3 +253,5 @@ p ~ ol, p ~ ul {
 h1 ~ ol, h1 ~ ul, h2 ~ ol, h2 ~ ul, h3 ~ ol, h3 ~ ul, h4 ~ ol, h4 ~ ul, h5 ~ ol, h5 ~ ul, h6 ~ ol, h6 ~ ul {
   margin-top: 0px;
   /* Restore the natural space (remove negative). */ }
+
+/*# sourceMappingURL=projects.css.map */

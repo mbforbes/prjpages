@@ -21,9 +21,11 @@ var md = require('markdown-it')({
     return ''; // use external default escaping
   },
   html: true,
+  linkify: true,
   typographer: true
 });
 md.use(require("markdown-it-anchor"));
+md.use(require("markdown-it-footnote"));
 
 ////////////////////////////////////////////////////////////////////////////////
 // SETTINGS
