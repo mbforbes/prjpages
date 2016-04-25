@@ -7,17 +7,23 @@ var express = require("express");
 var logger = require("morgan");
 var fs = require("fs");
 var _ = require('underscore');
-var marked = require('marked');
 var highlight = require('highlight.js');
 var CSON = require('cson');
 // var jade = require("jade");
+var md = require('markdown-it')({
+  highlight: function (str, lang) {
+    if (lang && highlight.getLanguage(lang)) {
+      try {
+        return highlight.highlight(lang, str).value;
+      } catch (__) {}
+    }
 
-// Configure module dependencies
-marked.setOptions({
-	highlight: function (code) {
-		return highlight.highlightAuto(code).value;
-	}
+    return ''; // use external default escaping
+  },
+  html: true,
+  typographer: true
 });
+md.use(require("markdown-it-anchor"));
 
 ////////////////////////////////////////////////////////////////////////////////
 // SETTINGS
@@ -154,7 +160,7 @@ var loadItems = function(basedir, section, cats) {
 				var mdfiles = _.filter(candidatefiles, endsWithThis, '.md');
 				if (mdfiles.length >= 1) {
 					mdfile = mdfiles[0];
-					newitem.post = marked(fs.readFileSync(candidatedir + mdfile,
+					newitem.post = md.render(fs.readFileSync(candidatedir + mdfile,
 						{encoding: 'utf8'}));
 				}
 
@@ -196,7 +202,7 @@ var data = {
 };
 
 // Additional data for other sections.
-var about_post = marked(fs.readFileSync(other_dir + "about.md",
+var about_post = md.render(fs.readFileSync(other_dir + "about.md",
 	{encoding: 'utf8'}));
 
 // Further processing for routing.

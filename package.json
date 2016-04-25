@@ -7,7 +7,8 @@
     "jade": "*",
     "underscore": "*",
     "morgan": "*",
-    "marked": "*",
+    "markdown-it": "*",
+    "markdown-it-anchor": "*",
     "highlight.js": "*",
     "cson": "2.*"
   },
