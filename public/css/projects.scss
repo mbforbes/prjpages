@@ -374,11 +374,12 @@ pre code {
 }
 
 .simpleitem {
-	border-left: 1px solid $c_border;
+	// border-left: 1px solid $c_border;
 	width: $px_itemWidth;
 	margin: $px_itemMargin;
 	padding: $px_itemPadding;
 	display: inline-block;
+	vertical-align: top;
 }
 
 /* Fix spacing for multi-level bullets. We want inner bullets closer

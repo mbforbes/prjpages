@@ -244,7 +244,8 @@ pre code {
   width: 270px;
   margin: 50px;
   padding: 10px;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top; }
 
 /* Fix spacing for multi-level bullets. We want inner bullets closer
    to their parents, and farther away from the next level below.*/
