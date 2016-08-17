@@ -32,6 +32,9 @@ header > .container.separator {
 .spacebar.programming {
   border-bottom: 1px solid #ff7f00; }
 
+.spacebar.writing {
+  border-bottom: 1px solid #e41a1c; }
+
 .spacebar.music {
   border-bottom: 1px solid #377eb8; }
 
@@ -50,6 +53,9 @@ header > .container.separator {
 
 .programming a, .programming a:visited {
   color: #ff7f00; }
+
+.writing a, .writing a:visited {
+  color: #e41a1c; }
 
 .music a, .music a:visited {
   color: #377eb8; }

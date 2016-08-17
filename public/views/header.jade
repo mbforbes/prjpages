@@ -7,7 +7,12 @@ header
 						| Maxwell Forbes
 		.row.linkbar
 			.col-xs-6.prjLink
-				h2 projects
+				h2
+					a(href='/projects')
+						if (activesection && activesection == 'projects')
+							b projects
+						else
+							| projects
 			.col-xs-6.researchLink
 				h2 research
 		.row.areas

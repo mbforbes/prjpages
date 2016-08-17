@@ -247,6 +247,13 @@ var render_cat = function(request, response) {
 	}
 };
 
+// not called directly---called from other functions if the section
+var render_projects = function(request, response) {
+	var locals = {"data": data, "activesection": 'projects'};
+	response.render(views_dir + 'page_overview.jade',
+		_.extend({}, jade_options, locals));
+};
+
 var render_item = function(request, response) {
 	var cat = request.params.cat,
 		item = request.params.item,
@@ -286,6 +293,8 @@ app.get('/about', function(request, response) {
 	response.render(views_dir + 'page_about.jade',
 		_.extend({}, jade_options, locals));
 });
+
+app.get('/projects', render_projects);
 
 app.get('/:cat/:item', render_item);
 

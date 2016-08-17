@@ -1,5 +1,6 @@
 // content is c
-if (!activecat) || (activecat && c.cat == activecat)
+// render if root, in the right category, or in the right section
+if (!activecat && !activesection) || (activecat && c.cat == activecat) || (activesection && c.section == activesection)
 	.simpleitem
 		if c.post
 			a(href='/' + c.cat + '/' + c.name)

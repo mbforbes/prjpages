@@ -57,6 +57,7 @@ $craw_offwhite: #fcfcfc;
 
 // project / resarch categories
 $c_prog: $craw_orange;
+$c_writing: $craw_red;
 $c_music: $craw_blue;
 $c_clothes: $craw_green;
 $c_robotics: $craw_purple;
@@ -113,6 +114,8 @@ header > .container.separator {
 
 .spacebar.programming {
 	border-bottom: $sb_size $sb_style $c_prog; }
+.spacebar.writing {
+	border-bottom: $sb_size $sb_style $c_writing; }
 .spacebar.music {
 	border-bottom: $sb_size $sb_style $c_music; }
 .spacebar.clothes {
@@ -133,6 +136,8 @@ header > .container.separator {
 // The specifics (selected). Can add .cats to all if this breaks.
 .programming a, .programming a:visited{
 	color: $c_prog; }
+.writing a, .writing a:visited{
+	color: $c_writing; }
 .music a, .music a:visited {
 	color: $c_music; }
 .clothes a, .clothes a:visited {
