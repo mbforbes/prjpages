@@ -41,6 +41,7 @@ var valid_endings = ['.json', '.cson'];
 var propfile = 'prop.cson'; // describes categories
 var itemfile = 'item.cson'; // describes items
 var postfile = 'post.md'; // describes posts
+var thanksfile = 'thanks.md'; // end of posts (past footnotes)
 var pub_dir = __dirname + '/public/';
 var views_dir = pub_dir + 'views/';
 var data_dir = pub_dir + 'data/';
@@ -158,13 +159,25 @@ var loadItems = function(basedir, section, cats) {
 				}
 
 				// Load additional data here (markdown posts, etc.).
-				// Here we only display the first markdown file we find.
-				var mdfiles = _.filter(candidatefiles, endsWithThis, '.md');
-				if (mdfiles.length >= 1) {
-					mdfile = mdfiles[0];
-					newitem.post = md.render(fs.readFileSync(candidatedir + mdfile,
+
+				// The contents are all loaded as the "post".
+				var contents = [
+					postfile,
+					thanksfile,
+				];
+				var post = '';
+				for (var ci = 0; ci < contents.length; ci++) {
+					var f = _.filter(candidatefiles, endsWithThis, contents[ci]);
+					if (f.length > 1) {
+						console.log("Warning! Found > 1 file for " + contents[ci] + " for " + cat);
+					}
+					if (f.length === 0) {
+						continue;
+					}
+					post +=  md.render(fs.readFileSync(candidatedir + f[0],
 						{encoding: 'utf8'}));
 				}
+				newitem.post = post;
 
 				// Finished; add to results.
 				results.push(newitem);
