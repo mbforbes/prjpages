@@ -50,8 +50,6 @@ var other_dir = data_dir + 'other/';
 var prj_dir = data_dir + 'projects/';
 var research_dir = data_dir + 'research/';
 var cat_dir = data_dir + 'categories/';
-var prj_cat_file = cat_dir + 'project_categories.cson';
-var research_cat_file = cat_dir + 'research_categories.cson';
 
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIGURE SERVER
@@ -100,7 +98,10 @@ var loadFile = function(file_path) {
 var genCatsForDir = function(dirname) {
 	var c1 = fs.readdirSync(dirname);
 	var candidates = _.filter(fs.readdirSync(dirname),
-		function(f) { return fs.statSync(dirname + f).isDirectory(); });
+		function(f) {
+			return fs.statSync(dirname + f).isDirectory() &&
+				fs.existsSync(dirname + f + '/' + propfile);
+		});
 	var results = [];
 	for (var i = 0; i < candidates.length; i++) {
 		results.push({
@@ -195,12 +196,6 @@ var getProp = function(obj) {
 ////////////////////////////////////////////////////////////////////////////////
 // LOAD ALL OF THE DATA
 ////////////////////////////////////////////////////////////////////////////////
-
-// data
-var prj_files = _.filter(fs.readdirSync(prj_dir), isLoadable);
-var research_files = _.filter(fs.readdirSync(research_dir), isLoadable);
-var prj_jsons = [];
-var research_jsons = [];
 
 // Grab all project and research categories and items.
 var prj_cats = genCatsForDir(prj_dir);
