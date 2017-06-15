@@ -1,8 +1,0 @@
-{
-  img_src: "gambit_in_action.png"
-  img_alt: "Gambit in action building a duplo model."
-  date: "June 4, 2014"
-  title: "Accelerating Imitation Learning through Crowdsourcing"
-  desc: 'We explore how crowdsourcing can improve goal-based imitation learning
-		  in robotics.'
-}

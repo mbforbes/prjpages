@@ -1,8 +1,0 @@
-{
-  img_src: "gui.png"
-  img_alt: "The GUI the crowd used to fix robot actions."
-  date: "November 4, 2014"
-  title: "Robot Programming by Demonstration with Crowdsourced Action Fixes"
-  desc: 'We use crowdsourcing with active learning to help robot
-          programming by demonstration.'
-}

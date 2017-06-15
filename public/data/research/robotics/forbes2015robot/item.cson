@@ -1,7 +1,0 @@
-{
-  img_src: "robot.jpg"
-  img_alt: "The robot executing a program programmed by instructions."
-  date: "May 26, 2015"
-  title: "Robot Programming by Demonstration with Situated Spatial Language Understanding"
-  desc: 'We build a system for programming robots with natural language.'
-}

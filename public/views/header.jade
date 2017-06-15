@@ -14,7 +14,12 @@ header
 						else
 							| projects
 			.col-xs-6.researchLink
-				h2 research
+				h2
+					a(href='/research')
+						if (activesection && activesection == 'research')
+							b research
+						else
+							| research
 		.row.areas
 			.col-xs-6.projects.cats
 				each pc in data.prj_cats

@@ -1,7 +1,0 @@
-{
-  img_src: "helmet_and_box.png"
-  img_alt: "The NAO robot with a helmet (dark) and holding a box (heavy)."
-  date: "March 3, 2014"
-  title: "Grounding Antonym Adjective Pairs through Interaction"
-  desc: "We use generative classifiers to interactively teach a NAO robot to distinguish antonym pairs of adjectives."
-}

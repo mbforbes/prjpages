@@ -1,9 +1,0 @@
-{
-  img_src: "prog.png"
-  img_alt: "A user programming a robot by demonstration. The robot is
-            using semantic parsing to interpret the user's command."
-  date: "November 14, 2014"
-  title: "Programming by Demonstration with Situated Semantic Parsing"
-  desc: 'We use semantic parsing to create a better natural language interface
-          for robot programming by demonstration.'
-}

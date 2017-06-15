@@ -199,20 +199,36 @@ var getProp = function(obj) {
 
 // Grab all project and research categories and items.
 var prj_cats = genCatsForDir(prj_dir);
-var research_cats = genCatsForDir(research_dir);
 var prj_jsons = loadItems(prj_dir, 'projects', prj_cats);
+var research_cats = genCatsForDir(research_dir);
 var research_jsons = loadItems(research_dir, 'research', research_cats);
+
+// research_nav will be used for the header navigation instead of research_cats
+// as we're going to render top-level navigation at the granularity of seciton
+// of page rarther than project.
+var research_nav = [{
+		"name": "bio",
+		"icon": "glyphicon-user"
+	}, {
+		"name": "publications",
+		"icon": "glyphicon-file"
+	}
+];
 
 // This is passed to the renderer.
 var data = {
 	"prj_cats": prj_cats,
-	"research_cats": research_cats,
+	"research_cats": research_nav,
 	"prj_jsons": prj_jsons,
 	"research_jsons": research_jsons,
 };
 
 // Additional data for other sections.
 var about_post = md.render(fs.readFileSync(other_dir + "about.md",
+	{encoding: 'utf8'}));
+
+// Research page.
+var research_post = md.render(fs.readFileSync(research_dir + "post.md",
 	{encoding: 'utf8'}));
 
 // Further processing for routing.
@@ -236,6 +252,16 @@ app.locals._ = require("underscore");
 // RENDER FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////
 
+var render_generalpost = function(active, post, request, response) {
+	var locals = {
+		"data": data,
+		"activesection": active,		
+		"post": post
+	};
+	response.render(views_dir + 'page_generalpost.jade',
+		_.extend({}, jade_options, locals));
+};
+
 var render_root = function(request, response) {
 	var locals = {"data": data};
 	response.render(views_dir + 'page_overview.jade',
@@ -255,7 +281,6 @@ var render_cat = function(request, response) {
 	}
 };
 
-// not called directly---called from other functions if the section
 var render_projects = function(request, response) {
 	var locals = {"data": data, "activesection": 'projects'};
 	response.render(views_dir + 'page_overview.jade',
@@ -296,11 +321,13 @@ app.get('/about', function(request, response) {
 	var locals = {
 		"data": data,
 		"activecat": "about",
-		"about_post": about_post
+		"post": about_post
 	};
-	response.render(views_dir + 'page_about.jade',
+	response.render(views_dir + 'page_generalpost.jade',
 		_.extend({}, jade_options, locals));
 });
+
+app.get('/research', render_generalpost.bind(null, 'research', research_post));
 
 app.get('/projects', render_projects);
 
