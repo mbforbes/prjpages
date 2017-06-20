@@ -1,9 +1,15 @@
 // content is c
 // render if root, in the right category, or in the right section
 if (!activecat && !activesection) || (activecat && c.cat == activecat) || (activesection && c.section == activesection)
+	// Default: projects url
+	- var url = '/' + c.cat + '/' + c.name
+	// Publications url just goes to link on research page
+	if c.section == 'research'
+		- url = '/research#' + c.name
+
 	.simpleitem
 		if c.post
-			a(href='/' + c.cat + '/' + c.name)
+			a(href=url)
 				img.vertImage(src=c.img_src, alt=c.img_alt)
 		else
 			img.vertImage(src=c.img_src, alt=c.img_alt)
@@ -16,7 +22,7 @@ if (!activecat && !activesection) || (activecat && c.cat == activecat) || (activ
 		.simpleicon: span(class="glyphicon", class=icon)
 		div
 			if c.post
-				a(href='/' + c.cat + '/' + c.name)
+				a(href=url)
 					h2=c.title
 			else
 				h2=c.title

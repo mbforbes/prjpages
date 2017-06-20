@@ -94,7 +94,6 @@ $c_text_dark: $craw_grey_darkest;
 	left: calc(#{$expr});
 }
 
-
 /* Classes
 *******************************************************************************/
 
@@ -315,8 +314,12 @@ pre code {
 		text-align: left;
 	}
 
+	h2:first-of-type {
+		margin-top: 0px;
+	}
+
 	h2 {
-		margin-top: 30px;
+		margin-top: 60px;
 	}
 
 	img {
@@ -347,6 +350,32 @@ pre code {
 			max-width: $px_imgWidth;
 			position: absolute;
 			@include left-calc("50% + #{$px_postMaxWidth} / 2 + #{$px_imgPad}");
+		}
+	}
+
+	img.totheright {
+		/* If marked, show image to the right always, or hide if no space. */
+		@media (max-width: $px_screenWideMin) {
+			display: none;
+		}
+
+		@media (min-width: $px_screenWideMin) {
+			max-width: $px_imgWidth;
+			position: absolute;
+			@include left-calc("50% + #{$px_postMaxWidth} / 2 + #{$px_imgPad}");
+		}
+	}
+
+	img.totheleft {
+		/* If marked, show image to the left always, or hide if no space. */
+		@media (max-width: $px_screenWideMin) {
+			display: none;
+		}
+
+		@media (min-width: $px_screenWideMin) {
+			max-width: $px_imgWidth;
+			position: absolute;
+			@include left-calc("50% - #{$px_postMaxWidth} / 2 - #{$px_imgWidth} - #{$px_imgPad}");
 		}
 	}
 

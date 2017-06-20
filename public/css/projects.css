@@ -187,8 +187,10 @@ pre code {
     text-align: center; }
   .itemcontent h2, .itemcontent h3, .itemcontent h4, .itemcontent h5, .itemcontent h6 {
     text-align: left; }
+  .itemcontent h2:first-of-type {
+    margin-top: 0px; }
   .itemcontent h2 {
-    margin-top: 30px; }
+    margin-top: 60px; }
   .itemcontent img {
     filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
     /* Firefox 10+, Firefox on Android */
@@ -223,6 +225,40 @@ pre code {
         left: -o-calc(50% + 500px / 2 + 35px);
         /* Standard */
         left: calc(50% + 500px / 2 + 35px); } }
+  .itemcontent img.totheright {
+    /* If marked, show image to the right always, or hide if no space. */ }
+    @media (max-width: 970px) {
+      .itemcontent img.totheright {
+        display: none; } }
+    @media (min-width: 970px) {
+      .itemcontent img.totheright {
+        max-width: 200px;
+        position: absolute;
+        /* Firefox */
+        left: -moz-calc(50% + 500px / 2 + 35px);
+        /* WebKit */
+        left: -webkit-calc(50% + 500px / 2 + 35px);
+        /* Opera */
+        left: -o-calc(50% + 500px / 2 + 35px);
+        /* Standard */
+        left: calc(50% + 500px / 2 + 35px); } }
+  .itemcontent img.totheleft {
+    /* If marked, show image to the left always, or hide if no space. */ }
+    @media (max-width: 970px) {
+      .itemcontent img.totheleft {
+        display: none; } }
+    @media (min-width: 970px) {
+      .itemcontent img.totheleft {
+        max-width: 200px;
+        position: absolute;
+        /* Firefox */
+        left: -moz-calc(50% - 500px / 2 - 200px - 35px);
+        /* WebKit */
+        left: -webkit-calc(50% - 500px / 2 - 200px - 35px);
+        /* Opera */
+        left: -o-calc(50% - 500px / 2 - 200px - 35px);
+        /* Standard */
+        left: calc(50% - 500px / 2 - 200px - 35px); } }
   .itemcontent table td {
     padding-left: 7px; }
   .itemcontent .videoWrapper {
