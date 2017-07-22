@@ -21,7 +21,7 @@ I am supported by an NSF Graduate Research Fellowship.
 **Verb Physics: Relative Physical Knowledge of Actions and Objects**  
 Maxwell Forbes, Yejin Choi  
 In _Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL) 2017_  
-[[pdf](https://arxiv.org/abs/1706.03799)] [[project](https://uwnlp.github.io/verbphysics)]
+[[pdf](https://arxiv.org/abs/1706.03799)] [[project](https://uwnlp.github.io/verbphysics)] [[code](https://github.com/uwnlp/verbphysics)] [[data](https://github.com/uwnlp/verbphysics#data)]
 
 &nbsp;
 
