@@ -249,16 +249,16 @@ pre code {
         display: none; } }
     @media (min-width: 970px) {
       .itemcontent img.totheleft {
-        max-width: 200px;
+        max-width: 150px;
         position: absolute;
         /* Firefox */
-        left: -moz-calc(50% - 500px / 2 - 200px - 35px);
+        left: -moz-calc(50% - 500px / 2 - 150px - 35px);
         /* WebKit */
-        left: -webkit-calc(50% - 500px / 2 - 200px - 35px);
+        left: -webkit-calc(50% - 500px / 2 - 150px - 35px);
         /* Opera */
-        left: -o-calc(50% - 500px / 2 - 200px - 35px);
+        left: -o-calc(50% - 500px / 2 - 150px - 35px);
         /* Standard */
-        left: calc(50% - 500px / 2 - 200px - 35px); } }
+        left: calc(50% - 500px / 2 - 150px - 35px); } }
   .itemcontent table td {
     padding-left: 7px; }
   .itemcontent .videoWrapper {

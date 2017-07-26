@@ -23,6 +23,7 @@ $pt_postFontSize: 12pt;
 //$pt_postMaxWidth: 375pt;
 $px_postMaxWidth: 500px;
 $px_imgWidth: 200px;
+$px_leftImgWidth: 150px;
 $px_imgPad: 35px;
 $px_screenWideMin: $px_postMaxWidth + (($px_imgPad + $px_imgWidth) * 2);
 
@@ -373,9 +374,9 @@ pre code {
 		}
 
 		@media (min-width: $px_screenWideMin) {
-			max-width: $px_imgWidth;
+			max-width: $px_leftImgWidth;
 			position: absolute;
-			@include left-calc("50% - #{$px_postMaxWidth} / 2 - #{$px_imgWidth} - #{$px_imgPad}");
+			@include left-calc("50% - #{$px_postMaxWidth} / 2 - #{$px_leftImgWidth} - #{$px_imgPad}");
 		}
 	}
 
