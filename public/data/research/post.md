@@ -2,7 +2,7 @@
 
 <img src="/data/other/max_cropped.jpeg" class="totheright" />
 
-I am a second-year PhD student in artificial intelligence at the University of
+I am a third-year PhD student in artificial intelligence at the University of
 Washington. My advisor is [Yejin Choi](https://homes.cs.washington.edu/~yejin/).
 I am in the [UW Natural Language
 Processing](https://www.cs.washington.edu/research/nlp/people) group.
