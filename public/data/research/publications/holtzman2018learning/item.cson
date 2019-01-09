@@ -1,0 +1,7 @@
+{
+  img_src: "l2w.png"
+  img_alt: "The central algorithm from the learning to write paper."
+  date: "July 15, 2018"
+  title: "Learning to Write with Cooperative Discriminators"
+  desc: 'We propose a method for globally coherent text production by guiding a language generator with a committee of discriminators.'
+}

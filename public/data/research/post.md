@@ -2,19 +2,32 @@
 
 <img src="/data/other/max_cropped.jpeg" class="totheright" />
 
-I am a third-year PhD student in artificial intelligence at the University of
+I am a fourth-year PhD student in artificial intelligence at the University of
 Washington. My advisor is [Yejin Choi](https://homes.cs.washington.edu/~yejin/).
-I am in the [UW Natural Language
+I work in the [UW Natural Language
 Processing](https://www.cs.washington.edu/research/nlp/people) group.
 
-My current research focuses on: (1) machine learning approaches to commonsense
-knowledge acquision, (2) grounded language work in computer vision and robotics.
+My current research focuses on: (1) machine learning approaches for acquiring
+physical commonsense knowledge, (2) language understanding in grounded settings
+like computer vision and robotics.
 
-I am supported by an NSF Graduate Research Fellowship.
+I am currently a part-time student researcher at Google AI, and am a TA for the
+UW winter 2019 natural language processing graduate course ([CSE
+517](https://courses.cs.washington.edu/courses/cse517/19wi/)). I am a 2016 NSF
+Graduate Research Fellow.
 
 ## Publications
 
 ### Conference proceedings
+
+<a name="holtzman2018learning"></a>
+<img src="/data/research/publications/holtzman2018learning/l2w.png" class="totheleft" />
+**Learning to Write with Cooperative Discriminators**  
+Ari Holtzman, Jan Buys, Maxwell Forbes, Antoine Bosselut, David Golub, and Yejin Choi  
+In _Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (ACL) 2018_  
+[[pdf](https://arxiv.org/pdf/1805.06087.pdf)] [[code](https://github.com/ari-holtzman/l2w)] [[examples](https://ari-holtzman.github.io/l2w-demo/)]
+
+&nbsp;
 
 <a name="forbes2017verb"></a>
 <img src="/data/research/publications/forbes2017verb/model.png" class="totheleft" />

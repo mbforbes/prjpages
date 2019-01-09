@@ -11,18 +11,18 @@ var highlight = require('highlight.js');
 var CSON = require('cson');
 // var jade = require("jade");
 var md = require('markdown-it')({
-  highlight: function (str, lang) {
-    if (lang && highlight.getLanguage(lang)) {
-      try {
-        return highlight.highlight(lang, str).value;
-      } catch (__) {}
-    }
+	highlight: function (str, lang) {
+		if (lang && highlight.getLanguage(lang)) {
+			try {
+				return highlight.highlight(lang, str).value;
+			} catch (__) { }
+		}
 
-    return ''; // use external default escaping
-  },
-  html: true,
-  linkify: true,
-  typographer: true
+		return ''; // use external default escaping
+	},
+	html: true,
+	linkify: true,
+	typographer: true
 });
 md.use(require("markdown-it-anchor"));
 md.use(require("markdown-it-footnote"));
@@ -32,7 +32,7 @@ md.use(require("markdown-it-footnote"));
 ////////////////////////////////////////////////////////////////////////////////
 
 // app settings
-var jade_options = {pretty: true};
+var jade_options = { pretty: true };
 var app = express();
 var valid_endings = ['.json', '.cson'];
 //var router = new express.Router();
@@ -57,20 +57,20 @@ var cat_dir = data_dir + 'categories/';
 
 // Pimp my string (from
 // http://stackoverflow.com/questions/280634/endswith-in-javascript)
-String.prototype.endsWith = function(suffix) {
-    return this.indexOf(suffix, this.length - suffix.length) !== -1;
+String.prototype.endsWith = function (suffix) {
+	return this.indexOf(suffix, this.length - suffix.length) !== -1;
 };
-String.prototype.startsWith = function(prefix) {
-    return this.indexOf(prefix) === 0;
+String.prototype.startsWith = function (prefix) {
+	return this.indexOf(prefix) === 0;
 };
 
 // for calling in _ loop
-var endsWithThis = function(str) {
+var endsWithThis = function (str) {
 	return str.endsWith(this);
 };
 
 // check if a file found is what we want (ignores .DS_Store, etc.)
-var isLoadable = function(file_name) {
+var isLoadable = function (file_name) {
 	for (var i = 0; i < valid_endings.length; i++) {
 		if (file_name.endsWith(valid_endings[i])) {
 			return true;
@@ -79,12 +79,12 @@ var isLoadable = function(file_name) {
 	return false;
 };
 
-var isDirectory = function(file_path) {
+var isDirectory = function (file_path) {
 	return fs.statSync(file_path).isDirectory();
 };
 
 // Load a file (must have a valid suffix).
-var loadFile = function(file_path) {
+var loadFile = function (file_path) {
 	if (file_path.endsWith('.json')) {
 		return JSON.parse(fs.readFileSync(file_path));
 	} else if (file_path.endsWith('.cson')) {
@@ -95,10 +95,10 @@ var loadFile = function(file_path) {
 };
 
 // generate the project names / icons array by loading from the filesystem
-var genCatsForDir = function(dirname) {
+var genCatsForDir = function (dirname) {
 	var c1 = fs.readdirSync(dirname);
 	var candidates = _.filter(fs.readdirSync(dirname),
-		function(f) {
+		function (f) {
 			return fs.statSync(dirname + f).isDirectory() &&
 				fs.existsSync(dirname + f + '/' + propfile);
 		});
@@ -114,19 +114,19 @@ var genCatsForDir = function(dirname) {
 
 // To avoid creating the function in a loop, we provide an isDirectory with
 // context for a prefix.
-var isDirectoryPrefix = function(file_path) {
+var isDirectoryPrefix = function (file_path) {
 	return isDirectory(this + file_path);
 };
 
 // Also avoiding creating a function in a loop, this just checks if the
 // past argument is equal to this
-var equalToThis = function(arg) {
+var equalToThis = function (arg) {
 	return arg == this;
 };
 
 // Scans all categories within basedir (either projects or research) and gets
 //  all item objects within directories it finds.
-var loadItems = function(basedir, section, cats) {
+var loadItems = function (basedir, section, cats) {
 	var results = [];
 	for (var i = 0; i < cats.length; i++) {
 		var cat = cats[i];
@@ -175,8 +175,8 @@ var loadItems = function(basedir, section, cats) {
 					if (f.length === 0) {
 						continue;
 					}
-					post +=  md.render(fs.readFileSync(candidatedir + f[0],
-						{encoding: 'utf8'}));
+					post += md.render(fs.readFileSync(candidatedir + f[0],
+						{ encoding: 'utf8' }));
 				}
 				newitem.post = post;
 
@@ -189,7 +189,7 @@ var loadItems = function(basedir, section, cats) {
 };
 
 // simple function to get the property of an object ('passed' as context)
-var getProp = function(obj) {
+var getProp = function (obj) {
 	return obj[this];
 };
 
@@ -207,12 +207,12 @@ var research_jsons = loadItems(research_dir, 'research', research_cats);
 // as we're going to render top-level navigation at the granularity of seciton
 // of page rarther than project.
 var research_nav = [{
-		"name": "bio",
-		"icon": "glyphicon-user"
-	}, {
-		"name": "publications",
-		"icon": "glyphicon-file"
-	}
+	"name": "bio",
+	"icon": "glyphicon-user"
+}, {
+	"name": "publications",
+	"icon": "glyphicon-file"
+}
 ];
 
 // This is passed to the renderer.
@@ -225,11 +225,11 @@ var data = {
 
 // Additional data for other sections.
 var about_post = md.render(fs.readFileSync(other_dir + "about.md",
-	{encoding: 'utf8'}));
+	{ encoding: 'utf8' }));
 
 // Research page.
 var research_post = md.render(fs.readFileSync(research_dir + "post.md",
-	{encoding: 'utf8'}));
+	{ encoding: 'utf8' }));
 
 // Further processing for routing.
 var ok_cats = _.map(prj_cats.concat(research_cats), getProp, 'name');
@@ -252,27 +252,27 @@ app.locals._ = require("underscore");
 // RENDER FUNCTIONS
 ////////////////////////////////////////////////////////////////////////////////
 
-var render_generalpost = function(active, post, request, response) {
+var render_generalpost = function (active, post, request, response) {
 	var locals = {
 		"data": data,
-		"activesection": active,		
+		"activesection": active,
 		"post": post
 	};
 	response.render(views_dir + 'page_generalpost.jade',
 		_.extend({}, jade_options, locals));
 };
 
-var render_root = function(request, response) {
-	var locals = {"data": data};
+var render_root = function (request, response) {
+	var locals = { "data": data };
 	response.render(views_dir + 'page_overview.jade',
 		_.extend({}, jade_options, locals));
 };
 
-var render_cat = function(request, response) {
+var render_cat = function (request, response) {
 	var cat = request.params.cat;
 	if (ok_cats.indexOf(cat) > -1) {
 		// valid category; render category
-		var locals = {"data": data, "activecat": cat};
+		var locals = { "data": data, "activecat": cat };
 		response.render(views_dir + 'page_overview.jade',
 			_.extend({}, jade_options, locals));
 	} else {
@@ -281,19 +281,19 @@ var render_cat = function(request, response) {
 	}
 };
 
-var render_projects = function(request, response) {
-	var locals = {"data": data, "activesection": 'projects'};
+var render_projects = function (request, response) {
+	var locals = { "data": data, "activesection": 'projects' };
 	response.render(views_dir + 'page_overview.jade',
 		_.extend({}, jade_options, locals));
 };
 
-var render_item = function(request, response) {
+var render_item = function (request, response) {
 	var cat = request.params.cat,
 		item = request.params.item,
 		activeitem;
 	if (ok_cats.indexOf(cat) > -1) {
 		// good cat! at least render cat (maybe even item)
-		activeitem = _.findWhere(all_jsons, {name: item, cat: cat});
+		activeitem = _.findWhere(all_jsons, { name: item, cat: cat });
 		if (activeitem) {
 			// good item!
 			var locals = {
@@ -317,7 +317,7 @@ var render_item = function(request, response) {
 // CONFIGURE ROUTING
 ////////////////////////////////////////////////////////////////////////////////
 
-app.get('/about', function(request, response) {
+app.get('/about', function (request, response) {
 	var locals = {
 		"data": data,
 		"activecat": "about",
@@ -342,6 +342,6 @@ app.get('/', render_root);
 ////////////////////////////////////////////////////////////////////////////////
 
 var port = process.env.PORT || 5000;
-app.listen(port, function() {
-  console.log("Listening on " + port);
+app.listen(port, function () {
+	console.log("Listening on " + port);
 });
