@@ -1,5 +1,7 @@
 # prjpages
 
+_Editor's note: This was my old website! My new one has replaced it at http://maxwellforbes.com_
+
 A website with Node, Jade, SASS and more.
 
 ![A screenshot of what the website looks like as of April 21, 2014](screenshot.png)
